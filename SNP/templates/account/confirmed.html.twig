@@ -1,0 +1,5 @@
+{% extends 'layout-page.html.twig' %}
+{% block body %}
+    Merci, votre email est confirmé. Vous pouvez maintenant continuer votre inscription.<br/><br/>
+    <a href="{{ env.DASHBOARD_CACI_URL }}?token={{ token|url_encode }}" style="border-radius: 4px;display: inline-block; background: #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none">Continuer</a>
+{% endblock %}

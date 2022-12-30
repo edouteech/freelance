@@ -1,0 +1,63 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: id
+
+    firewalls:
+
+        config:
+            pattern: ^/config$
+            security: false
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        refresh:
+            pattern:  ^/user/refresh$
+            security: false
+
+        login:
+            pattern:  ^/user/login$
+            security: false
+
+        create_user:
+            pattern:  ^/user$
+            security: false
+            methods: [POST]
+
+        password:
+            pattern:  ^/user/password/(.*)$
+            security: false
+
+        formation:
+            pattern:  ^/formation/participant/(.*)$
+            security: false
+
+        cms:
+            pattern:  ^/cms/(.*)$
+            security: false
+
+        main:
+            anonymous: ~
+            logout: ~
+            access_denied_handler: App\Security\AccessDeniedHandler
+            guard:
+                authenticators:
+                    - App\Security\JWTTokenAuthenticator
+
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    role_hierarchy:
+        ROLE_CLIENT:      ROLE_USER
+        ROLE_CONTACT:     ROLE_USER
+        ROLE_SIGNATURE:   ROLE_CLIENT
+        ROLE_MEMBER:      ROLE_CLIENT
+        ROLE_COMPANY:     ROLE_CLIENT
+        ROLE_ADMIN:       ROLE_CLIENT
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]

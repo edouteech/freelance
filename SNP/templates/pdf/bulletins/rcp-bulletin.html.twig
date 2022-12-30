@@ -1,0 +1,174 @@
+{% apply inline_css(source('@styles/pdf/rcp-bulletin.css')) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ac_sous_rcp_bulletin</title>
+    <style>
+        @page {
+            margin: 15px 30px 100px 30px;
+            footer: footer;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div>
+            <img src="{{ asset('images/logo_Serenis_assurances.jpg') }}" alt="">
+            <p>
+                SA au capital de 16 422 000 € <br>
+                RCS de Romans B 350 838 636 <br>
+                25 rue du Docteur Henri Abel <br>
+                26000 VALENCE
+            </p>
+        </div>
+        <div>
+            ASSURANCE RESPONSABILITÉ CIVILE PROFESSIONNELLE <br>
+            BULLETIN D'ADHÉSION N° {{ contact.memberId }} <br>
+            AU CONTRAT GROUPE N° {{ contract.policyNumber }}<br>
+            RCE-RCP NÉGOCIATEUR IMMOBILIER NON SALARIÉ <br>
+            Souscrit par ASSERIS <br>
+        </div>
+        <div>
+            <p class="bordered">
+                D N° {{ contact.memberId }}
+            </p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <b>Le soussigné :</b> <br>
+        Nom: <b>{{ contact.lastname }}</b> Prénom: <b>{{ contact.firstname }}</b> <br>
+        Né le : <b>{{ contact.birthday|date('d/m/Y') }}</b> à : <b>{{ contact.birthPlace }}</b> <br>
+        Habilité par la société : <b>{{ address.company.name }}</b> <br>
+        Représentée par :
+        {% if address.company.companyRepresentative.label %}
+            <b>{{ address.company.companyRepresentative.label }}</b><br>
+        {% else %}
+            <b>{{ address.company.legalRepresentative.civility }} {{ address.company.legalRepresentative.fullname }}</b><br>
+        {% endif %}
+        Titulaire de la carte professionnelle N° carte <b>{{ address.company.businessCard.number }}</b> délivrée le : <b>{{ address.company.businessCard.issuedAt|date('d/m/Y') }}</b> par : <b>{{ address.company.businessCard.cci }}</b> <br>
+        {% if address.company.legalForm %}
+            Régime : <b>{{ address.company.legalForm }}</b> <br>
+        {% endif %}
+        Adresse postale : <b>{{ contact.address.street1 }}</b> <br>
+        Code postal : <b>{{ contact.address.zip }}</b> Ville : <b>{{ contact.address.city }}</b> <br>
+        Téléphone : <b>{{ contact.phone }}</b> E-mail : <b>{{ contact.email }}</b>
+        {% if contact.rsac %}
+            <br>N° du Registre spécial des Agents Commerciaux : <b>{{ contact.rsac }}</b>
+        {% endif %}
+    </section>
+
+    <section class="content">
+        <p>
+            Déclare vouloir adhérer au contrat groupe souscrit par ASSERIS auprès de SERENIS ASSURANCES SA, en faveur des adhérents au dit contrat
+            groupe, garantissant leur responsabilité civile exploitation et professionnelle.
+        </p>
+        <h4>ACTIVITÉ GARANTIE :</h4>
+        <p>
+            L'assuré, personne physique, mandataire du titulaire de la carte professionnelle peut se livrer aux opérations de représentation, prospection,
+            négociation, ou entremise, au nom et pour le compte du mandant, dans la limite des textes législatifs et réglementaires applicables et des mentions
+            portées sur l'attestation d'habilitation prévue par l'article 9 du décret du 20 juillet 1972.
+            Entrent dans cette définition, les activités relatives à :
+        </p>
+        <ul>
+            <li>la prospection de vendeurs, d'acquéreurs, de bailleurs, et / ou de locataires d'immeubles bâtis ou non bâtis, ainsi que de fonds de commerce</li>
+            <li>la rédaction de mandats de vente, de recherche, de location et / ou de gestion</li>
+            <li>la visite et la présentation des immeubles bâtis ou non bâtis et fonds de commerce</li>
+            <li>la publicité sur les biens immobiliers et fonds de commerce</li>
+            <li>la négociation entre les parties d'une opération immobilière</li>
+        </ul>
+        <table>
+            <tr>
+                <td>
+                    <b>MONTANT DE LA GARANTIE</b> <br>
+                    (par année d'assurance)
+                </td>
+                <td>
+                    <b>FRANCHISE</b> <br>
+                    (par sinistre)
+                </td>
+            </tr>
+            <tr>
+                <td><b>200 000 €</b></td>
+                <td><b>10 % DU MONTANT DE L'INDEMNITE MAXIMUM 7 600 €</b></td>
+            </tr>
+        </table>
+        <h4>Cotisation à acquitter (voir tarif cadre) : ADHÉSIONS INTERVENANT AU COURS DU : </h4>
+        <table>
+            <tr>
+                <td>- <b>1er semestre</b> : Perception de la cotisation annuelle</td>
+                <td>- <b>2ème semestre</b> : Perception de la moitié de la cotisation annuelle</td>
+            </tr>
+            <tr>
+                <td><b>COTISATION ANNUELLE TTC : {{ sellingPrice|number_format(2, ',', '&nbsp') }} €</b></td>
+                <td><b>COTISATION TTC PERCUE AU COMPTANT : {{ fees|number_format(2, ',', '&nbsp') }} €</b></td>
+            </tr>
+            <tr>
+                <td><b>EFFET DE L'ADHÉSION : {{ contract.startDate|date('d/m/Y') }}</b></td>
+                <td><b>ÉCHÉANCE ANNUELLE CONTRACTUELLE : 01/01</b></td>
+            </tr>
+        </table>
+        <h4>RENOUVELLEMENT DE L'ADHÉSION :</h4>
+        <p>
+            L'adhésion se renouvelle d'année en année par tacite reconduction sauf dénonciation par l'une des parties.
+        </p>
+        <h4>DÉCLARATION DES ANTÉCÉDENTS :</h4>
+        <p class="bordered">
+            {% if registration.hasAlreadyRcpAc %}
+                Vous déclarez être actuellement assuré en Responsabilité Civile Professionnelle auprès de la compagnie d'assurance : <b>{{ registration.insurerNameRcpAc }}</b><br>
+            {% else %}
+                Vous déclarez ne pas être actuellement assuré en Responsabilité Civile Professionnelle.<br>
+            {% endif %}
+            Vous certifiez n'avoir jamais eu plus de 3 de sinistres et / ou une charge globale sinistre de plus de 3000 €, au cours des 3 dernières années.
+        </p>
+        <h4>DISPOSITIONS DIVERSES :</h4>
+        <ul>
+            <li>L'assurance devient effective à compter de la date de délivrance de l'attestation d'habilitation prévues par l'article 9 du décret du 20 juillet 1972</li>
+            <li>Toutes les modifications relatives à la présente adhésion doivent être adressées dans les cinq jours à ASSERIS</li>
+            <li>Les déclarations de sinistres doivent être adressées dans les cinq jours à SERENIS ASSURANCES SA 4 rue Frédéric-Guillaume Raiffeisen 67000 Strasbourg</li>
+        </ul>
+        <p>
+            L'assuré déclare avoir reçu préalablement à l'adhésion, un exemplaire des Conditions générales (réf RCNEG 10/13), et du tableau
+            « Montant des garanties et des franchises » valant notice d'information précontractuelle au sens de l'article L.112-2 du Code des Assurances.
+        </p>
+        <p>
+            Fait le <b>{{ "now"|date('d/m/Y') }}</b> à <b>Paris</b> <br>
+            En trois exemplaires originaux, un pour SERENIS ASSURANCES SA, un pour la personne garantie et un pour ASSERIS
+        </p>
+    </section>
+
+    <section class="signature">
+        <div>
+            Signature de l'assuré <br>
+            <b>{{ contact.lastname }} {{ contact.firstname }}</b>
+        </div>
+        <div>
+            {# <img src="data:image/jpg;base64, {{ source('@images/signature_asseris.jpg')|base64_encode }}"> #}
+            Signature de SERENIS ASSURANCES <br>
+            <img src="{{ asset('images/signature_asseris.jpg') }}" alt="" srcset="">
+        </div>
+    </section>
+
+    <htmlpagefooter name="footer">
+        <section class="footer">
+            <div class="logo">
+                <img src="{{ asset('images/logo_asseris.jpg') }}" alt="" srcset="">
+            </div>
+            <div>
+                ASSERIS, une marque de VHS, cabinet de courtage en assurances du SNPI <br>
+                26, avenue Victor Hugo - 75116 Paris | Tél : 01 53 64 91 87
+            </div>
+            <hr>
+            <div>
+                contact@asseris.fr / www.asseris.fr <br>
+                N° Orias 07 000 133 - SARL au capital de 152.450€ - Code NAF : 6622Z <br>
+                RCS Paris B 422 496 828 - SIRET 42249682800019 - N° TVA Intracommunautaire : FR32422496828
+            </div>
+        </section>
+    </htmlpagefooter>
+</body>
+</html>
+{% endapply %}

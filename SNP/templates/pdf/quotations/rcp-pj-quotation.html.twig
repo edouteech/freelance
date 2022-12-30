@@ -1,0 +1,245 @@
+{% apply inline_css(source('@styles/pdf/rcp-pj-quotation.css')) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis-RCP-PJ</title>
+    <style>
+        @page {
+            margin: 40px 50px 220px 50px;
+            footer: footer;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div class="firstHalf">
+            <div>Pour tout renseignement, contactez :</div>
+            <div>
+                <b>ASSERIS</b> <br>
+                Tél : 01.53.64.91.87 <br>
+                Fax : 01.53.64.91.88 <br>
+                <span class="red-color">contact@asseris.fr</span> <br>
+                <span class="red-color">www.asseris.fr</span> <br>
+            </div>
+        </div>
+        <div class="secondHalf">
+            <p>
+                <b>{{ contact.civility }}. {{ contact.firstname }} {{ contact.lastname }}</b> <br>
+                <b>{{ contact.address.street }}</b> <br>
+                <b>{{ contact.address.zip }} {{ contact.address.city }}</b>
+            </p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div><h2 class="title red-color">DEVIS (EXPRESSION DES BESOINS)</h2></div>
+        <div>
+            <p>
+                {% if contractType == "rcp-pj" %}
+                    Vous nous avez fait part de votre volonté de souscrire une assurance Responsabilité Civile Professionnelle ainsi qu'une assurance Protection Juridique pour votre activité de {{ contact.legalForm }}.
+                {% elseif contractType == "rcp" %}
+                    Vous nous avez fait part de votre volonté de souscrire une assurance Responsabilité Civile Professionnelle pour votre activité de {{ contact.legalForm }}
+                {% elseif contractType == "pj" %}
+                    Vous nous avez fait part de votre volonté de souscrire une assurance Protection Juridique pour votre activité de {{ contact.legalForm }}
+                {% endif %}
+            </p>
+            {% set contractTypes = contractType|split('-') %}
+            <p>
+                <b>Vous nous avez exprimé les besoins suivants :</b>
+                <ul class="list-style-none">
+                    {% if "rcp" in contractTypes %}
+                        <li>- Une garantie Responsabilité Civile Professionnelle</li>
+                        <li>- Une garantie Responsabilité Civile Exploitation</li>
+                        <li>- Une garantie Défense Pénale et Recours</li>
+                    {% endif %}
+                    {% if "pj" in contractTypes %}
+                        <li>- Une garantie Protection Juridique</li>
+                    {% endif %}
+                </ul>
+            </p>
+            <p>Vous acceptez l'application d'une franchise contractuelle.</p>
+        </div>
+        <div>
+            <table class="table">
+                <tr>
+                    <th class="red-table-header">VOS GARANTIES</th>
+                    {% if "rcp" in contractTypes %}
+                        <th class="red-table-header">MONTANT DES GARANTIES</th>
+                        <th class="red-table-header">FRANCHISES</th>
+                    {% else %}
+                        <th class="red-table-header" colspan="2">MONTANT DES GARANTIES</th>
+                    {% endif %}
+                </tr>
+                {% if "rcp" in contractTypes %}
+                    <tr>
+                        <th class="grey-table-header" colspan="3">RESPONSABILITÉ CIVILE PROFESSIONNELLE</th>
+                    </tr>
+                    <tr>
+                        <td>Dommages corporels, matériels, immatériels consécutifs et incorporel confondus</td>
+                        <td>200 000 € / an</td>
+                        <td>
+                            • 10 % du montant de l'indemnité <br>
+                            • plafonnée à 7 600 €
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bien confiés</td>
+                        <td>30 000 €</td>
+                        <td>750 €</td>
+                    </tr>
+                    <tr>
+                        <th class="grey-table-header" colspan="3">RESPONSABILITÉ CIVILE EXPLOITATION</th>
+                    </tr>
+                    <tr>
+                        <td>Dommages corporels, matériels, immatériels consécutifs et incorporel confondus</td>
+                        <td>4 500 000 € / sinistre</td>
+                        <td>sans franchise</td>
+                    </tr>
+                    <tr>
+                        <td>Faute inexcusable</td>
+                        <td>225 000 € / an</td>
+                        <td>sans franchise</td>
+                    </tr>
+                    <tr>
+                        <td>Intoxications alimentaires</td>
+                        <td>460 000 € / an</td>
+                        <td>sans franchise</td>
+                    </tr>
+                    <tr>
+                        <td>Atteintes à l'environnement (tous dommages confondus)</td>
+                        <td>300 000 € / an max. par sinistre 150 000 €</td>
+                        <td>1 500 €</td>
+                    </tr>
+                    <tr>
+                        <td>Dommages corporels, matériels, immatériels consécutifs confondus</td>
+                        <td>1 000 000 € / sinistre</td>
+                        <td>450 €</td>
+                    </tr>
+                    <tr>
+                        <td>Incendie / explosion et dégât des eaux</td>
+                        <td>500 000 € / sinistre</td>
+                        <td>450 €</td>
+                    </tr>
+                    <tr>
+                        <td>Occupation temporaire de locaux : dommages d'incendie, explosion et dégât des eaux</td>
+                        <td>300 000 € / sinistre</td>
+                        <td>450 €</td>
+                    </tr>
+                    <tr>
+                        <td>Autres dommages accidentels</td>
+                        <td>31 000 € / sinistre</td>
+                        <td>450 €</td>
+                    </tr>
+                    <tr>
+                        <td>Vol commis par préposés</td>
+                        <td>30 500 € / sinistre</td>
+                        <td>765 €</td>
+                    </tr>
+                    <tr>
+                        <td>Dommages subis par les préposés</td>
+                        <td>2 000 € / sinistre</td>
+                        <td>100 €</td>
+                    </tr>
+                    <tr>
+                        <td>Véhicules et animaux déplacés</td>
+                        <td>10 000 € / sinistre</td>
+                        <td>150 €</td>
+                    </tr>
+                    <tr>
+                        <th class="grey-table-header" colspan="3">DÉFENSE PÉNALE ET RECOURS</th>
+                    </tr>
+                    <tr>
+                        <td>Engagement maximum de l'assureur par événement générateur, pour tout litige supérieur à 1 500 €</td>
+                        <td colspan="2">15 000 €</td>
+                    </tr>
+                {% endif %}
+                {% if "pj" in contractTypes %}
+                    <tr>
+                        <th class="grey-table-header" colspan="3">PROTECTION JURIDIQUE</th>
+                    </tr>
+                    <tr>
+                        <td>Activité professionnelle et outil de travail - Usurpation d'identité et atteinte à votre image sur internet - Redressement fiscal - Consommation</td>
+                        <td colspan="2">20 000 € / litige</td>
+                    </tr>
+                    <tr>
+                        <td>Permis à points - Frais de stage</td>
+                        <td colspan="2">250 € / stage</td>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <th class="grey-table-header" colspan="3">PRISE D'EFFET ET DURÉE DE L'ADHESION</th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        L'adhésion prend effet à la date indiquée sur le bulletin d'adhésion pour l'année d'assurance en cours.
+                        Elle est reconductible automatiquement par tacite reconduction au 1er janvier de chaque année, sauf dénonciation par l'une ou l'autre des parties.
+                    </td>
+                </tr>
+                <tr>
+                    <th class="grey-table-header" colspan="3">PRISE D'EFFET ET DURÉE DE L'ADHESION</th>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Montant TTC à verser</b> <br>
+                        <small><i>Pour la période du {{ startDate|date('d/m/Y') }} au {{ startDate|date('31/12/Y') }}</i></small>
+                    </td>
+                    <td colspan="2" class="red-color">
+                        <span>{{ totalAmount }} €</span> <br>
+                        <small>(dont 35 € de frais d'ouverture de dossier pour la 1ère année, puis 22 € de frais de renouvellement pour les années suivantes)</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Modalités de paiement</td>
+                    <td colspan="2">Carte bancaire</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="signature">
+        <div>La date d'effet pour la prise d'effet des garanties est le : <b>{{ startDate|date('d/m/Y') }}</b></div>
+        <p>
+            {% if contractType == "rcp-pj" %}
+                Compte tenu de la situation et des besoins exprimés ce jour, les contrats d'assurances des compagnies SERENIS Assurances SA, référence VD / 7.000.002, et GROUPAMA, référence 504 757, sont proposés par ASSERIS.
+            {% elseif contractType == "rcp" %}
+                Compte tenu de la situation et des besoins exprimés ce jour, le contrat d'assurance de la compagnie SERENIS Assurances SA, référence VD / 7.000.002, est proposé par ASSERIS.
+            {% elseif contractType == "pj" %}
+                Compte tenu de la situation et des besoins exprimés ce jour, le contrat d'assurance de la compagnie GROUPAMA, référence 504 757, est proposé par ASSERIS.
+            {% endif %}
+        </p>
+        <div>Date de remise au client : <b>{{ "now"|date('d/m/Y') }}</b></div>
+        <div>
+            <div>
+                <b>Alain DUFFOUX</b> <br>
+                <i>ASSERIS</i>
+            </div>
+            <div class="logo">
+                {# <img src="data:image/jpg;base64, {{ source('@images/signature_asseris.jpg')|base64_encode }}"> #}
+                <img src="{{ asset('images/signature_asseris.jpg') }}" alt="" srcset="">
+            </div>
+        </div>
+    </section>
+
+    <htmlpagefooter name="footer">
+        <section class="footer">
+            <div class="logo">
+                <img src="{{ asset('images/logo_asseris.jpg') }}" alt="" srcset="">
+            </div>
+            <div>
+                ASSERIS, une marque de VHS, cabinet de courtage en assurances du SNPI <br>
+                26, avenue Victor Hugo - 75116 Paris | Tél : 01 53 64 91 87
+            </div>
+            <hr>
+            <div>
+                contact@asseris.fr / www.asseris.fr <br>
+                N° Orias 07 000 133 - SARL au capital de 152.450€ - Code NAF : 6622Z <br>
+                RCS Paris B 422 496 828 - SIRET 42249682800019 - N° TVA Intracommunautaire : FR32422496828
+            </div>
+        </section>
+    </htmlpagefooter>
+</body>
+</html>
+{% endapply %}

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<title>Communication SNPI</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+      #outlook a {padding: 0}
+      .ReadMsgBody {width: 100%}
+      .ExternalClass {width: 100%}
+      .ExternalClass * {line-height: 100%}
+      body {
+          margin: 0;
+          padding: 0;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+      }
+      table, td {
+          border-collapse: collapse;
+          mso-table-lspace: 0;
+          mso-table-rspace: 0;
+      }
+      img {
+          border: 0;
+          height: auto;
+          line-height: 100%;
+          outline: none;
+          text-decoration: none;
+          -ms-interpolation-mode: bicubic;
+      }
+      p {
+          display: block;
+          margin: 13px 0;
+      }
+
+      @media only screen and (min-width: 480px) {
+          .mj-column-per-100 {
+              width: 100% !important;
+              max-width: 100%;
+          }
+
+          .mj-column-per-50 {
+              width: 50% !important;
+              max-width: 50%;
+          }
+
+          .mj-column-per-70 {
+              width: 70% !important;
+              max-width: 70%;
+          }
+	      .mj-column-px-205{
+		      width: 205px !important;
+		      max-width: 205px;
+	      }
+	      .mj-column-px-100{
+		      width: 100px !important;
+		      max-width: 100px;
+	      }
+	      .mj-column-px-295{
+		      width: 295px !important;
+		      max-width: 295px;
+	      }
+      }
+
+      @media only screen and (max-width: 480px) {
+          table.full-width-mobile {
+              width: 100% !important;
+          }
+
+          td.full-width-mobile {
+              width: auto !important;
+          }
+      }
+
+
+      noinput.mj-menu-checkbox {
+          display: block !important;
+          max-height: none !important;
+          visibility: visible !important;
+      }
+
+      @media only screen and (max-width: 480px) {
+          .mj-menu-checkbox[type="checkbox"] ~ .mj-inline-links {
+              display: none !important;
+          }
+
+          .mj-menu-checkbox[type="checkbox"]:checked ~ .mj-inline-links,
+          .mj-menu-checkbox[type="checkbox"] ~ .mj-menu-trigger {
+              display: block !important;
+              max-width: none !important;
+              max-height: none !important;
+              font-size: inherit !important;
+          }
+
+          .mj-menu-checkbox[type="checkbox"] ~ .mj-inline-links > a {
+              display: block !important;
+          }
+
+          .mj-menu-checkbox[type="checkbox"]:checked ~ .mj-menu-trigger .mj-menu-icon-close {
+              display: block !important;
+          }
+
+          .mj-menu-checkbox[type="checkbox"]:checked ~ .mj-menu-trigger .mj-menu-icon-open {
+              display: none !important;
+          }
+      }
+
+      @media only screen and (min-width: 481px) {
+          *[class~=hide_on_desktop] {
+              display: none !important;
+          }
+      }
+
+      @media only screen and (max-width: 480px) {
+          .header_mobile {
+              max-width: 50% !important;
+          }
+
+          .header_mobile img {
+              width: 100% !important;
+          }
+
+          .image_mobile {
+              max-width: 50% !important;
+          }
+
+          .image_mobile img {
+              width: 200px !important;
+          }
+
+          *[class~=hide_on_mobile] {
+              display: none !important;
+          }
+	      .block-mobile,.block-mobile tbody{ display: block; width: 100% }
+	      .mobile-align-left{ text-align:left; margin: 0 !important }
+      }
+	</style>
+</head>
+<body style="background-color:#ecf0f3;">
+<div style="background-color:#ecf0f3;padding-top: 20px">
+	<div style="background:#fff; margin:0 auto;max-width: 600px">
+		{% block notification %}{% endblock %}
+		<table width="100%" style="width: 100%;max-width: 600px">
+			<tr><td>
+					<table style="width: 100%" class="block-mobile">
+						<tr class="block-mobile full-width-mobile">
+							<td align="left" style="padding: 10px" class="mj-column-px-205 block-mobile">
+								<a href="https://www.snpi.fr/" target="_blank">
+									<img alt="SNPI" height="auto" src="{{ host ~ asset('email/logo_snpi.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width: 205px; margin-left: auto; margin-right: auto" width="205" class="mobile-align-left"/>
+								</a>
+							</td>
+							<td class="mj-column-px-100 block-mobile"></td>
+							<td align="right" class="mj-column-px-295 block-mobile" style="padding-top:20px; padding-right: 20px">
+								{% if (user|default and user.type|default) or contact|default or company|default %}
+
+								{% if user.type|default == 'company' and not company|default %}
+									{% set company = user.company %}
+								{% elseif user.type|default == 'contact' and not contact|default %}
+									{% set contact = user.contact %}
+								{% endif %}
+
+									{% if contact|default or company|default %}
+										<table width="100%" style="width: 100%;padding: 20px; border-radius:3px; background-color:#042b72; color: white">
+											<tr>
+												<td style="padding: 0 10px" width="40">
+													<a href="{{ env.DASHBOARD_URL }}" target="_blank">
+														<img alt="Espace Adhérents" height="auto" src="{{ host ~ asset('email/profil.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width: 40px;" width="40"/>
+													</a>
+												</td>
+												<td style="padding: 5px 10px">
+													<div style="font-size:12px;line-height:1;color:white; font-family:Helvetica, Arial, sans-serif; ">
+														{% if contact|default %}
+															<p>
+																<b>{{ contact.firstname ~ ' ' ~  contact.lastname }}</b>
+															</p>
+															{% if company|default %}
+																<p>{{ company.brand }}</p>
+															{% endif %}
+															{% if contact.memberId|default %}
+																<p>N° d'adhérent: {{ contact.memberId }}</p>
+															{% endif %}
+														{% elseif company|default %}
+															<p>
+																<b>{{ company.name }}</b>
+															</p>
+															<p>
+																{{ company.brand }}<br>
+																N° d'adhérent: {{ company.memberId }}
+															</p>
+														{% endif %}
+													</div>
+												</td>
+											</tr>
+										</table>
+									{% endif %}
+								{% endif %}
+							</td></tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding:80px 30px 50px;text-align: center">
+					<div style="font-family:'Times New Roman',serif;font-size:16px;font-weight:bold;line-height:1;text-align:center;color:#0e2c6e;margin-bottom: 20px">
+						{{title}}
+					</div>
+					<div style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:20px;text-align:center;">
+						{% block body %}{% endblock %}
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					{% block aside %}{% endblock %}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table style="background:#0e2c6e;background-color:#0e2c6e;width:100%;text-align:center;">
+						<tr>
+							<td style="padding-top:40px;padding-bottom:40px;text-align: center">
+								<img alt="SNPI" height="auto" src="{{ host ~ asset('email/logo_white.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width: 150px;margin: 0 auto" width="150"/>
+								<div style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:20px;text-align:center;color:#ffffff;margin-top: 10px; margin-bottom: 20px">
+									26, Avenue Victor Hugo, 75116 Paris<br> T. +33 (0) 1 53 64 91 91 M. <a href="mailto:contact@snpi.com" style="text-decoration: none; color: #ffffff;">contact@snpi.com</a>
+								</div>
+								<div style="text-align:center">
+									<table style="margin: 0 auto">
+										<tr>
+											<td style="padding: 5px">
+												<a href="https://www.facebook.com/SNPI.fr" target="_blank">
+													<img alt="facebook" height="25" src="{{ host ~ asset('email/facebook-icon.png') }}" style="border-radius:3px;" width="25"/>
+												</a>
+											</td>
+											<td style="padding: 5px">
+												<a href="https://twitter.com/SNPI_fr" target="_blank">
+													<img alt="twitter" height="25" src="{{ host ~ asset('email/twitter-icon.png') }}" width="25"/>
+												</a>
+											</td>
+											<td style="padding: 5px">
+												<a href="https://www.linkedin.com/company/syndicat-national-des-professionnels-immobiliers/" target="_blank">
+													<img alt="linkedin" height="25" src="{{ host ~ asset('email/linkedin-icon.png') }}" width="25"/>
+												</a>
+											</td>
+											<td style="padding: 5px">
+												<a href="https://www.youtube.com/user/SNPIFRANCE" target="_blank">
+													<img alt="youtube" height="25" src="{{ host ~ asset('email/youtube-icon.png') }}" width="25"/>
+												</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size:10px;text-align:center;color:#838385;margin:0 auto;width: 100%;max-width:600px;line-height:1.2; padding-top: 10px">
+
+	</div>
+</div>
+</body>
+</html>

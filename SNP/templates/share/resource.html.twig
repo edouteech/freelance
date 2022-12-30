@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>{{ form.message|nl2br }}</p>
+		<p>{{ name }}</p>
+		<div style="font-family:Helvetica, Arial, sans-serif; font-size: 12px;padding-top: 20px">
+			<a href="{{ link }}" style="display: inline-block; background: #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none; border-radius: 4px"><span style="color: #fff; text-decoration: none">Voir {{ type }}</span></a>
+		</div>
+	</div>
+{% endblock %}

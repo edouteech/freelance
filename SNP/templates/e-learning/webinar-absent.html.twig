@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>La {{ completed ? '' : 'journée de' }} formation <span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span> vient de se terminer !</p>
+		<p>
+			Hélas, le contrôle de présence effectué révèle que vous n'avez pas assisté à la {{ completed ? '' : 'journée de' }} formation (ou non dans sa totalité).<br/>
+			En effet, vous devez suivre au moins 80% de la formation pour être considéré présent. {% if webinarParticipant %}Or, vos relevés de connexion, figurant ci-dessous, indiquent que vous n’avez pas atteint ce pourcentage.{% endif %}<br/><br/>
+			{% if completed %}
+				Nous ne sommes donc pas en mesure de vous rediriger vers votre parcours de finalisation, ni de vous délivrer une attestation de formation.
+			{% else %}
+				Nous ne sommes donc pas en mesure de vous rediriger vers la signature de la feuille de présence, ni de vous délivrer une attestation de formation.
+			{% endif %}
+			<br/>
+			<br/>
+			Pour toute réclamation, merci de nous contacter à l'adresse : <a href="mailto:{{ env.ZOOM_DEFAULT_CONTACT_EMAIL }}">{{ env.ZOOM_DEFAULT_CONTACT_EMAIL }}</a>.
+		</p>
+	</div>
+	{% if webinarParticipant %}
+		<p style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; text-align: center; margin-left: 10px; margin-bottom: 0; margin-top: 40px">
+			Veuillez trouver ci-dessous votre relevé de participation Zoom :
+		</p>
+		<br/>
+		<table style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72;width: 100%">
+			<tr>
+				<td style="padding: 2px">Connexion</td>
+				{% for session in webinarParticipant.raw_log %}
+					<td style="padding: 2px">{{ session.join_time|split('T')[1]|replace({'+00:00':''}) }}</td>
+				{% endfor %}
+				<td style="padding: 2px"></td>
+			</tr>
+			<tr>
+				<td style="padding: 2px">Déconnexion</td>
+				{% for session in webinarParticipant.raw_log %}
+					<td style="padding: 2px">{{ session.leave_time|split('T')[1]|replace({'+00:00':''}) }}</td>
+				{% endfor %}
+				<td style="padding: 2px"></td>
+			</tr>
+			<tr>
+				<td style="padding: 2px">Durée</td>
+				{% for session in webinarParticipant.raw_log %}
+					<td style="padding: 2px">{{ session.duration }} minutes</td>
+				{% endfor %}
+				<td style="padding: 2px">Total :<b>{{ webinarParticipant.duration }} minutes</b></td>
+			</tr>
+		</table>
+	{% endif %}
+{% endblock %}

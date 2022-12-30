@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+        <p>Bonjour {{ contact.firstname }} {{ contact.lastname }}</p>
+        <p>
+            La multi-connexion est désormais disponible sur votre espace adhérent !
+        </p>
+        <p>
+            Cette évolution permet à chaque membre de votre société de disposer de son propre accès à l'espace adhérent.
+        </p>
+        <p>
+            Afin de rendre possible la multi-connexion et inviter vos collaborateurs à activer leur compte personnel, vous devez d'abord activer le vôtre !<br/>
+            <b>Pour cela, vous devez vous connecter une dernière fois à votre compte société.</b>
+        </p>
+    </div>
+    <div style="font-family:Helvetica, Arial, sans-serif; font-size: 12px;padding-top: 20px">
+        <a href="{{ env.DASHBOARD_URL }}/migrate/{{ contact.id }}" style="border-radius: 4px;display: inline-block; background: #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none">Activer mon compte</a>
+    </div>
+    <p style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#d71c32; padding:0 20px;">
+        Attention : l'activation des comptes personnels est indispensable pour continuer à accéder à votre espace adhérent.
+    </p>
+{% endblock %}

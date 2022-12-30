@@ -1,0 +1,7 @@
+{% extends 'layout-page.html.twig' %}
+{% block body %}
+    Nous vous confirmons que votre paiement référence #{{ reference }} a bien été réceptionné !<br/><br/>
+    <b>Attention</b> : suite à ce paiement, vous avez dû être redirigé vers votre commande sur l’espace adhérent.<br/>
+    Si ce n’est pas le cas, merci de bien vouloir cliquer sur ce lien :<br/><br/>
+    <a href="{{ returnUrl }}" style="color: #0e2c6e; text-decoration: underline">{{ returnUrl }}</a>
+{% endblock %}

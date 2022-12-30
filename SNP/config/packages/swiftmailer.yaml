@@ -1,0 +1,4 @@
+swiftmailer:
+    url: '%env(MAILER_URL)%'
+    logging: true
+    spool: { type: 'memory' }

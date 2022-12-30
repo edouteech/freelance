@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>La {{ completed ? '' : 'journée de' }} formation <span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span> vient de se terminer !</p>
+		<p>
+			{% if completed %}
+				Merci de compléter <b>avant minuit</b> le parcours de finalisation pour valider la formation et recevoir votre attestation.
+			{% else %}
+				Merci de signer <b>avant minuit</b> la feuille de présence.
+			{% endif %}
+		</p>
+	</div>
+	<div style="font-family:Helvetica, Arial, sans-serif; font-size: 12px;padding-top: 20px">
+		<a href="{{ env.DASHBOARD_URL }}/webinar/{{ formationCourse.webinarId }}"  style="display: inline-block; background: #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none; border-radius: 4px"><span style="color: #fff; text-decoration: none">{{ completed ? 'Finaliser ma formation' : 'Signer' }}</span></a>
+	</div>
+	<p style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; text-align: left; margin-left: 10px; margin-bottom: 0; margin-top: 40px">
+		Vous avez besoin de prouver votre participation à la {{ completed ? '' : 'journée de' }} formation ?<br/>
+		<br/>
+		Veuillez trouver ci-dessous votre relevé de participation Zoom :
+	</p>
+	<pre style="text-align: left; font-size: 11px; white-space: normal; word-break: break-word; padding: 10px; margin: 10px; background: #f3f3f3; line-height: 1.4; margin-bottom: 0">
+		- Identifiants de connexion : {{ webinarParticipant.id }}<br/>
+		- Nom : {{ webinarParticipant.name }}<br/>
+		- Email de connexion : {{ webinarParticipant.email }}<br/>
+		- Heure d'arrivée : {{ webinarParticipant.join_time }}<br/>
+		- Heure de départ : {{ webinarParticipant.leave_time }}<br/>
+		- Durée de connexion : {{ webinarParticipant.duration }}min
+	</pre>
+	<p style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">Attention, ces informations ne conditionnent pas l'obtention de votre formation. Seule la réalisation du parcours de finalisation vous permettra d'obtenir votre attestation.</p>
+{% endblock %}

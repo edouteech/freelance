@@ -1,0 +1,684 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    eudonet:
+        constants:
+            canceled: 1003978
+            completed: 1003980
+            confirmed: 1003977
+            potential: 1003976
+            in_progress: 1000036
+            suspended: 4535
+            delayed: 1003979
+            pending: 1646
+            abandoned: 1650
+            serenis: 1847
+            groupama: 1846
+
+            non_member: 1000097
+            is_member: 1000098
+
+            member: 1000003
+            removed: 1223
+            refused: 1427
+            process: 1383
+            form_snpi: 1377
+            registered: 1760
+            not_member: 1000006
+            valid: 1647
+
+            session: 1003986
+            participant: 1003987
+
+            clear: 2215421
+            validated: 2210011
+            ongoing: 2210010
+            disputed: 4262
+
+            credit_card: 2210026
+            payment: 2215882
+
+            vhs: 1651
+            vhs_business_school: 1400
+            snpi: 1401
+            asseris: 1399
+
+            reception: 2
+
+            France: 1000058
+
+            Monsieur: 1000002
+            Madame: 1000001
+
+            juridique_immo: 1369
+            juridique_social: 1368
+            administratif_snpi: 1753
+            administratif_vhs: 1752
+            administratif_asseris: 1370
+            formation: 1371
+            sinistres_vhs: 1374
+            sinistres_asseris: 1375
+            communication: 1376
+            syndicale: 1373
+            technique: 1372
+
+            Gérant: 1436
+            Président: 1431
+            PDG: 1432
+            DG: 1434
+
+            holder_none: 1420
+            holder_syndic: 1254
+            holder_rental_management: 1253
+            holder_transactions: 1252
+
+            rcp_expert: 1258
+            rcp_syndic: 1257
+            rcp_transactions: 1255
+            rcp_rental_management: 1256
+
+            individual_company: 1264
+            regular_company: 1263
+
+            CGestion: 1480
+            CSyndic: 1482
+            CTransaction: 1479
+
+            Gestion: 1249
+            Syndic: 1248
+            Transaction: 1250
+            'Négociateur immobilier': 2973
+            'Agent commercial': 1430
+            'Autre collaborateur': 1439
+            'Salariés et assimilés': 1429
+
+            'EI': 1428
+            'Micro Entrepreneur': 1233
+            'EIRL': 1231
+            'Micro Entrepreneur + EIRL': 1832
+
+            'RCP CACI': 1771
+            'PJ CACI': 1775
+
+            'Cher Adhérent': 3259
+            'Chère Adhérente': 3260
+
+            turnover1: 4800
+            turnover2: 4801
+            turnover3: 4802
+            turnover4: 4803
+
+            generate_invoice: 2210044
+
+            'Inférieur à 1 million €': 4800
+            'Entre 1 000 001 et 2 499 999 €': 4801
+            'Entre 2 500 000 € et 4 999 999 €': 4802
+            'Supérieur à 5 000 000 €': 4803
+
+            source_other: 1572
+            source_word_of_mouth: 1570
+            source_event: 1227
+            source_facebook: 4798
+            source_web: 1228
+            source_linkedin: 4797
+            source_press: 1571
+
+            origin_web: 1000057
+
+            softwares:
+                'Abitavision': 1576
+                'Abitaweb': 1577
+                'Acarole': 1578
+                'Action': 1579
+                'Activisoft [ACTIVIMMO]': 1580
+                'Adaptimmo': 1581
+                'Agence Plus': 1582
+                'Apimo': 1583
+                'Aptalis': 1584
+                'Arkonet': 1585
+                'Axessia': 1586
+                'BBImmo': 1587
+                'Bee Concept': 1588
+                'Beyat': 1589
+                'Buildeo': 1590
+                'Cap Dev': 1591
+                'Chronotech': 1592
+                'Cleancode': 1593
+                'Consortium': 3760
+                'Cosmosoft': 1594
+                'Crypto': 1595
+                'Drive Fox Immo': 1596
+                'Ekinox - Ekicial': 1597
+                'Elephantbird': 1598
+                'Emoweb': 1599
+                'Enova': 1600
+                'FTP': 1601
+                'Gedeon': 1602
+                'Geolane': 1603
+                'Gercop': 1604
+                'Hektor': 1605
+                'Horizon [STUDIO NET]': 1606
+                'ICS': 1607
+                'Ilist [RE/MAX]': 1608
+                'Imminence - Emulis': 1609
+                'Immo diffusion': 1610
+                'Immo One': 1611
+                'Immo One E2': 3358
+                'Immo-Facile [AC3]': 1612
+                'Immoprice': 1613
+                'Immostore': 1614
+                'Immovision': 1615
+                'Immoweb': 1616
+                'Imozeo': 1617
+                'IWS': 1618
+                'Jview': 1619
+                'Kel': 1620
+                'Krier': 1621
+                'Logissimmo [IPSO FACTO]': 1622
+                'Mediaweb': 1623
+                'Naxos': 1624
+                'Netty': 1625
+                'Nina Immobilier': 1626
+                'One Expert': 3645
+                'Orpiconnect - Odyssee [ORPI]': 1627
+                'Pages Immo': 1628
+                'Partagimmo': 1629
+                'Pericles [POLIRIS]': 1630
+                'PHA Immobilier': 1631
+                'Progetis': 4242
+                'Proghabitat': 4243
+                'Realforce': 4115
+                'Rodacom': 1632
+                'Se Loger': 3359
+                'Sitimmopro - Ubiflow': 1633
+                'SNPI ACCESS': 1634
+                'Tetrawin [SEIITRA]': 1635
+                'Transactimmo': 1636
+                'Transellis': 1637
+                'Twimmo': 1638
+                'Wall Market': 1639
+                'Web Genery': 1640
+                'Web Geneve': 1641
+                'Win Immobilier': 1642
+
+        tables:
+
+            document:
+                id: 10200
+                columns:
+                    label: 102001
+                    description: 102002
+                    size: 102004
+                    type: 102005
+                    text: 102008
+                    location: 102009
+                    lifetime: 102013
+                    record: 102012
+
+                    created_at: 10205
+                    updated_at: 10206
+
+            application:
+                id: 10400
+                columns:
+                    holder: 10462
+                    company_type: 10463
+                    creation: 10426
+                    civility: 10452
+                    rcp: 10454
+                    cashless_transactions: 10460
+                    cash_transactions: 10461
+                    amount_cash_transactions: 10453
+                    first_request_cash_transactions: 10429
+                    rental_management: 10457
+                    amount_rental_management: 10459
+                    first_request_rental_management: 10427
+                    trustee: 10458
+                    amount_trustee: 10456
+                    first_request_trustee: 10433
+                    company: 10407
+                    lastname: 10404
+                    firstname: 10405
+                    email: 10425
+                    phone: 10410
+                    address: 10411
+                    postal_code: 10412
+                    city: 10415
+                    source: 10436
+                    status: 10403
+                    origin: 10419
+
+            company:
+                id: 300
+                columns:
+                    name: 301
+                    member_id: 322
+                    password: 353
+
+                    legal_form: 320
+                    status: 313
+                    is_franchise: 343
+                    kind: 325
+                    categories: 325
+                    sales: 342
+                    turnover: 346
+
+                    street1: 302
+                    street2: 304
+                    street3: 307
+                    zip: 309
+                    city: 310
+                    country: 303
+
+                    brand: 312
+                    website: 308
+                    franchise: 338
+                    ape: 317
+
+                    facebook: 331
+                    twitter: 333
+
+                    phone: 305
+                    siren: 318
+                    nic: 329
+                    software: 340
+                    archived: 357
+
+                    email: 323
+                    is_hidden: 324
+                    registrated_at: 337
+                    logo: 356
+                    adomos_key: 358
+                    acheter_louer_id: 359
+                    has_dashboard: 349
+                    can_create_account: 306
+
+                    lat_lng: 374
+                    created_at: 395
+                    updated_at: 396
+
+            company_business_card:
+                id: 1600
+                columns:
+                    number: 1601
+                    issued_at: 1602
+                    expire_at: 1606
+                    cci: 1604
+                    kind: 1603
+                    is_active: 1605
+
+                    company_id: 300
+
+                    created_at: 1695
+                    updated_at: 1696
+
+            contact:
+                id: 200
+                columns:
+                    lastname: 201|DbValue
+                    firstname: 202
+                    birthname: 242
+                    civility: 205
+                    member_id: 207
+                    rsac: 209
+                    birth_place: 213
+                    birthday: 214
+                    polite_phrase: 211
+                    status: 212
+                    password: 217
+                    legal_form: 208
+                    has_dashboard: 234
+                    e_learning_email: 251
+                    e_learning_password: 227
+                    e_learning_token: 221
+                    e_learning_v2: 241
+                    caci_step: 237
+                    avatar: 275
+
+                    created_at: 295
+                    updated_at: 296
+
+            address:
+                id: 400
+                columns:
+                    summary: 401
+                    street1: 402
+                    street2: 404
+                    street3: 407
+                    phone: 418
+                    email: 408
+                    zip: 409
+                    city: 410
+                    country: 403
+                    is_active: 411
+                    is_main: 412
+                    positions: 413
+                    is_archived: 415
+                    is_home: 492
+
+                    has_certificate: 425
+                    issued_at: 423
+                    expire_at: 424
+
+                    started_at: 416
+                    ended_at: 420
+
+                    contact_id: 200
+                    company_id: 300
+
+                    lat_lng: 474
+                    created_at: 495
+                    updated_at: 496
+
+            formation:
+                id: 11400
+                columns:
+                    title: 11401
+                    format: 11405
+                    hours: 11451
+                    days: 11452
+                    code: 11455
+                    job: 11433
+                    hours_ethics: 11427
+                    hours_discrimination: 11434
+                    objective: 11421
+                    is_active: 11424
+                    theme: 11430
+                    program: 11428
+                    previous_formation_id: 11435
+
+                    created_at: 11495
+                    updated_at: 11496
+
+            formation_course:
+                id: 11300
+                columns:
+                    session: 11301
+                    webinar_id: 11331
+                    status: 11333
+                    schedule: 11351
+                    start_at: 11302
+                    end_at: 11303
+                    format: 11330
+                    instructor1_id: 11309
+                    instructor2_id: 11310
+                    instructor3_id: 11338
+                    seating_capacity: 11318
+                    registrants_count: 11305
+                    remaining_places: 11359
+                    city: 11368
+                    tax_rate: 11353
+                    has_edit: 11334
+                    edit_note: 11335
+                    resend_mail: 11336
+                    reminded: 11337
+                    days: 11320
+
+                    company_id: 11352
+                    formation_id: 11400
+
+                    lat_lng: 11374
+                    created_at: 11395
+                    updated_at: 11396
+
+            formation_price:
+                id: 11600
+                columns:
+                    mode: 11603
+                    price: 11601
+                    product: 11602
+                    type: 11625
+
+                    formation_id: 11400
+
+                    created_at: 11695
+                    updated_at: 11696
+
+            formation_participant:
+                id: 11500
+                columns:
+                    registered: 11501
+                    present: 11502
+                    absent: 11554
+                    agreement_id: 11525
+                    registrant_id: 11507
+                    poll: 11553
+                    survey: 11509
+                    revived: 11513
+                    note: 11594
+                    confirmed: 11515
+                    resend_mail: 11526
+
+                    contact_id: 200
+                    address_id: 400
+                    formation_course_id: 11300
+
+                    created_at: 11595
+                    updated_at: 11596
+
+            company_representative:
+                id: 1400
+                columns:
+                    archived: 1402
+                    label: 1404
+                    contact_id: 200
+                    company_id: 300
+
+                    created_at: 1495
+                    updated_at: 1496
+
+            agreement:
+                id: 14700
+                columns:
+                    number: 14702
+                    mode: 14704
+                    generate_number: 14708
+                    generate_invoice: 14709
+                    compute_amounts: 14733
+                    amount: 14727
+                    validate_invoice: 14711
+                    invoice_id: 14715
+                    contact_id: 200
+                    company_id: 300
+                    formation_course_id: 11300
+
+                    created_at: 14795
+                    updated_at: 14796
+
+            invoice:
+                id: 22300
+                columns:
+                    number: 22302
+                    status: 22304
+                    payment_method: 22305
+                    due_date: 22309
+                    date: 22307
+                    entity: 22348
+                    amount_et: 22341
+                    vat: 22338
+                    amount_ati: 22339
+                    credit: 22318
+                    reinvoicing: 22316
+                    trigger: 22317
+
+            contract:
+                id: 1500
+                columns:
+                    amount: 1516
+                    generate_invoice: 1517
+                    invoice: 1518|DbValue
+                    category: 1555
+                    entity: 1548
+                    status: 1504
+                    previous_contract: 1501
+                    non_renewable: 1502
+                    payment_method: 1505
+                    insurer: 1506
+                    start_date: 1507
+                    end_date: 1508
+                    policy_number: 1509
+                    web: 1514
+                    invoice_id: 1518
+
+                    company_id: 300
+                    contact_id: 200
+
+                    created_at: 1595
+                    updated_at: 1596
+
+            contract_details:
+                id: 2700
+                columns:
+                    product: 2731|DbValue
+                    non_renewable: 2703
+                    prorata: 2702
+                    quantity: 2732
+                    unit_price: 2733
+                    price: 2737
+
+                    company_id: 300
+                    contact_id: 200
+                    contract_id: 1500
+
+            payment:
+                id: 24700
+                columns:
+                    reference: 24701
+                    receipt_date: 24707
+                    due_date: 24768
+                    type: 24704
+                    situation: 24751
+                    amount: 24742
+                    method: 24705
+                    authorization: 24761
+                    contract_id: 24755
+                    generate_invoice: 24757
+                    tpe: 24764
+
+                    invoice_id: 22300
+                    contact_id: 200
+                    company_id: 300
+
+            appendix:
+                id: 102000
+                columns:
+                    filename: 102001|DbValue
+                    link: 102001
+                    size: 102004
+                    ext: 102005
+                    entity_type: 102011|DbValue
+                    entity_id: 102012
+
+                    created_at: 102006
+
+            mail:
+                id: 11900
+                columns:
+                    street1: 11914
+                    street2: 11917
+                    street3: 11953
+                    zip: 11920
+                    city: 11921
+                    country: 11922
+                    district: 11923
+                    note: 11994
+                    company_id: 300
+
+                    created_at: 11995
+                    updated_at: 11996
+
+            request:
+                id: 1800
+                columns:
+                    civility: 1829
+                    lastname: 1833
+                    firstname: 1836
+                    email: 1835
+                    message: 1809
+                    recipient: 1823
+                    status: 1821
+                    subject: 1801
+                    channel: 1826
+
+                    contact_id: 200
+                    company_id: 300
+
+                    created_at: 1805
+
+            membership:
+                id: 10100
+                columns:
+                    label: 10101
+                    do_not_renew: 10103
+                    price_type: 10105
+                    amount: 10115
+                    number: 10116
+                    year: 10108
+                    status: 10111
+                    type: 10122
+                    member: 322
+                    web: 10119
+                    membership_date: 10120
+                    generate_invoice: 10107
+
+                    contact_id: 200
+                    company_id: 300
+
+                    updated_at: 10196
+                    created_at: 10195
+
+            membership_details:
+                id: 10300
+                columns:
+                    number: 10301
+                    product: 10304
+                    prorata: 10309
+                    validate: 10352
+
+                    membership_id: 10312
+
+            deposit:
+                id: 28300
+                columns:
+                    reference: 28301
+                    entity: 28348
+                    date: 28307
+                    method: 28305
+                    amount: 28342
+                    devise: 28321
+
+                    search: 28303
+                    spread: 28302
+                    validate: 28304
+
+                    contact_id: 200
+                    company_id: 300
+
+                    updated_at: 28396
+                    created_at: 28395
+
+            instructor:
+                id: 3300
+                columns:
+
+                    contact_id: 200
+                    formation_id: 11400
+
+                    updated_at: 3396
+                    created_at: 3395
+
+            subscription:
+                id: 10600
+                columns:
+                    invoice_id: 10604
+                    title: 10601
+
+                    company_id: 300
+
+            product:
+                id: 22100
+                columns:
+                    selling_price: 22133

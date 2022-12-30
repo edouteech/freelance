@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>Bonjour {{ contact.civility }} {{ contact.firstname }} {{ contact.lastname }}</p>
+		<p>
+				Nous vous rappelons votre inscription à la formation webinaire en direct :
+			<span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span>{% if formationCourse.days > 1 %} qui aura lieu sur {{ formationCourse.days }} jours{% endif %}
+			<br/><br/>
+			{% if formationCourse.days > 1 %}
+				Date : du {{ formationCourse.startAt|format_datetime('short', 'none', locale='fr') }} au {{ formationCourse.endAt|format_datetime('short', 'none', locale='fr') }}<br/>
+				Horaires : {{ formationCourse.schedule }} heure de Paris.<br/>
+			{% else %}
+				Date : {{ formationCourse.startAt|format_datetime('short', 'none', locale='fr') }}<br/>
+				Horaires : {{ formationCourse.schedule }} heure de Paris.<br/>
+			{% endif %}
+			<br/>Cette formation se déroulera sur Zoom.
+		</p>
+		<p>
+			Pour toute question, vous pouvez nous contacter à l'adresse : <a href="mailto:{{ env.ZOOM_DEFAULT_CONTACT_EMAIL }}">{{ env.ZOOM_DEFAULT_CONTACT_EMAIL }}</a>.
+		</p>
+	</div>
+	<div style="font-family:Helvetica, Arial, sans-serif; font-size: 12px;padding-top: 20px">
+		<a href="{{ registrant.join_url }}" style="display: inline-block; background: #0e2c6e; border: 1px solid #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none; border-radius: 4px">
+			<span style="color: #fff; text-decoration: none">Accéder à la formation</span>
+		</a>
+		<a href="{{ env.ZOOM_TUTORIAL_URL }}" style="display: inline-block; background:#fff; border: 1px solid #0e2c6e; color: #0e2c6e; padding: 5px 20px; text-decoration: none; border-radius: 4px; margin-left: 10px">
+			<span style="color: #0e2c6e; text-decoration: none">Comment me connecter le jour J ?</span>
+		</a>
+	</div>
+{% endblock %}
+
+{% block aside %}
+	<div style="background:#f5f7fa;font-family:Helvetica, Arial, sans-serif;font-size:12px;padding:40px 20px">
+		<h2 style="font-family: 'Times New Roman',serif; text-align: center;color:#042b72">Comment se déroule la formation ?</h2>
+		<div style="padding-top:20px">
+			<div style="font-family:Helvetica, Arial, sans-serif;font-size:12px; color:#042b72;padding:20px 25px;text-align: center" class="block-mobile">
+				<p><b style="font-family: 'Times New Roman',serif; font-size: 16px">1.</b> Vous pouvez installer l'application Zoom pour plus de fluidité lors de votre formation, ou bien décider de la suivre sur la version web.</p>
+			</div>
+			<div style="font-family:Helvetica, Arial, sans-serif;font-size:12px; color:#042b72;padding:20px 25px;text-align: center" class="block-mobile">
+				<p><b style="font-family: 'Times New Roman',serif; font-size: 16px">2.</b> Connectez-vous à la réunion grâce au lien indiqué ci-dessus quelques minutes avant le début de la formation.</p>
+			</div>
+			<div style="font-family:Helvetica, Arial, sans-serif;font-size:12px; color:#042b72;padding:20px 25px;text-align: center" class="block-mobile">
+				<p><b style="font-family: 'Times New Roman',serif; font-size: 16px">3.</b> À la fin de la formation, le lien pour accéder au parcours de finalisation de la formation vous sera envoyé par mail. Vous pourrez alors compléter votre quizz et obtenir votre attestation.</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

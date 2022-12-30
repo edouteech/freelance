@@ -1,0 +1,66 @@
+payum:
+
+  gateways:
+    formation:
+      factory: monetico
+      mode: 'TEST'
+      tpe: '6014251'
+      key: 'C1EE9D54DB3E2261F980E03D0632BC3D7E856C99'
+      company: 'vhsbusines'
+      debug: false
+
+    formation_elearning:
+      factory: monetico
+      mode: 'TEST'
+      tpe: '6014249'
+      key: 'AFDAC0DE669B05F86501C95F14042CF4F2E67B92'
+      company: 'vhsbusines'
+      debug: false
+
+    membership_snpi:
+      factory: monetico
+      mode: 'TEST'
+      tpe: '6014287'
+      key: '662E86F0333BA8CA93202E6C33907D9487114E92'
+      company: 'snpi'
+      debug: false
+
+    membership_vhs:
+      factory: monetico
+      mode: 'TEST'
+      tpe: '6014392'
+      key: '8EA403D092EA0E07581913772A144079A485D890'
+      company: 'vhsassuran'
+      debug: false
+
+    membership_asseris:
+      factory: monetico
+      mode: 'TEST'
+      tpe: '6014288'
+      key: '4D0EE01B0EAE3E5DCB836DE3B083155567D4FB9D'
+      company: 'agentimmo'
+      debug: false
+
+    membership_caci:
+      factory: monetico
+      mode: 'TEST'
+      tpe: '6014288'
+      key: '4D0EE01B0EAE3E5DCB836DE3B083155567D4FB9D'
+      company: 'agentimmo'
+      debug: false
+
+    register:
+      factory: monetico
+      mode: 'TEST'
+      tpe: '6014288'
+      key: '4D0EE01B0EAE3E5DCB836DE3B083155567D4FB9D'
+      company: 'agentimmo'
+      debug: false
+
+    signature:
+      factory: monetico
+      mode: 'TEST'
+      tpe: '6014393'
+      key: 'BA5C29F832C6280CBD8E03D5236C87650C1DC596'
+      company: 'vhsassuran'
+      debug: false

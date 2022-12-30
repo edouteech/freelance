@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation | {{ formation.title }}</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif">
+<h1>{{ formation.title }}</h1>
+<ul>
+    <li>Theme: {{ formation.theme }}</li>
+    <li>Objectif: {{ formation.objective }}</li>
+    <li>Heures: {{ formation.hours }}</li>
+    <li>Jours: {{ formation.days }}</li>
+</ul>
+{% if foad.write %}
+    {% if foad.write.introduction %}
+        <h2>Introduction</h2>
+        {% for row in foad.write.introduction %}
+            <h3>{{ row.title }}</h3>
+            <div>{{ row.wysiwyg|raw }}</div>
+        {% endfor %}
+    {% endif %}
+    {% if foad.write.chapters %}
+        <h2>Chapitres</h2>
+        {% for chapter in foad.write.chapters %}
+            <h3>{{ chapter.title }}</h3>
+            {% for subchapter in chapter.subchapters %}
+               <h4>{{ subchapter.title }}</h4>
+                {% if subchapter.video_url %}[VIDEO] {{ subchapter.video_url }}<br/>{% endif %}
+                {% if subchapter.file %}[PDF] {{ subchapter.file.url }}<br/>{% endif %}
+                {% if subchapter.quiz %}[QUIZ]<br/>{% endif %}
+                {% if subchapter.wysiwyg %}<div>{{ subchapter.wysiwyg|raw }}</div>{% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+</body>
+</html>

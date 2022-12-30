@@ -1,0 +1,8 @@
+header:before{ background: #042b72; position: absolute }
+#swagger-ui.api-platform .info .title{ color: #042b72 }
+header #logo{ display: none }
+.response-col_description__inner{ font-size: 14px }
+.response-col_description__inner .markdown p{ margin: 0 auto }
+.parameters-col_description .markdown p{ margin: 0 auto }
+.parameters-col_description { font-size: 14px; line-height: 140% }
+.parameters-col_description .parameter__default, .parameters-col_description .parameter__enum  { font-size: 12px }

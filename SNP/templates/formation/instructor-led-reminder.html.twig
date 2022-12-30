@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>Bonjour {{ contact.civility }} {{ contact.firstname }} {{ contact.lastname }}</p>
+		<p>
+			{% if formationParticipant %}
+				Nous vous rappelons votre inscription à la formation en présentielle :
+			{% else %}
+				Nous vous rappelons votre participation à la formation en présentielle :
+			{% endif %}
+			<span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span>{% if formationCourse.days > 1 %} qui aura lieu sur {{ formationCourse.days }} jours{% endif %}
+			<br/><br/>
+			{% if formationCourse.days > 1 %}
+				Date : du {{ formationCourse.startAt|format_datetime('short', 'none', locale='fr') }} au {{ formationCourse.endAt|format_datetime('short', 'none', locale='fr') }}<br/>
+				Horaires : {{ formationCourse.schedule }} heure de Paris.<br/>
+			{% else %}
+				Date : {{ formationCourse.startAt|format_datetime('short', 'none', locale='fr') }}<br/>
+				Horaires : {{ formationCourse.schedule }} heure de Paris.<br/>
+			{% endif %}
+			<br/>
+			{% if formationCourse.company %}
+				Cette formation se déroulera chez {{ formationCourse.company.brand }}, {{ formationCourse.company.street }} {{ formationCourse.company.zip }} {{ formationCourse.company.city }}.
+			{% endif %}
+		</p>
+		<p>
+			Pour toute question, vous pouvez nous contacter à l'adresse : <a href="mailto:{{ env.ZOOM_DEFAULT_CONTACT_EMAIL }}">{{ env.ZOOM_DEFAULT_CONTACT_EMAIL }}</a>.
+		</p>
+	</div>
+{% endblock %}

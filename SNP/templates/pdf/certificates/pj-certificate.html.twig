@@ -1,0 +1,123 @@
+{% apply inline_css(source('@styles/pdf/pj-certificate.css')) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ac_sous_pj_attestation</title>
+    <style>
+        @page {
+            margin: 30px 30px 100px 30px;
+            footer: footer;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div>
+            <img src="{{ asset('images/logo_asseris.jpg') }}" alt="" srcset="">
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        PROTECTION JURIDIQUE DES <br>
+                        AGENTS COMMERCIAUX <br>
+                        PROFESSIONNELS DE <br>
+                        L'IMMOBILIER <br>
+                        Contrat Groupe 504 757
+                    </td>
+                    <td>
+                        CERTIFICAT <br>
+                        D'ADHÉSION <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Numéro d'adhérent : {{ contact.memberId }}</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <img src="{{ asset('images/logo_groupama.jpg') }}" alt="" srcset="">
+        </div>
+    </section>
+
+    <section class="contact bordered">
+        <span class="grey-color">Nom</span> : <b>{{ contact.lastname }}</b> &emsp; <span class="grey-color">Prénom</span> : <b>{{ contact.firstname }}</b> <br>
+        <span class="grey-color">Adresse</span> : <b>{{ contact.address.street1 }}</b> <br>
+        <span class="grey-color">Code postal</span> : <b>{{ contact.address.zip }}</b> &emsp; <span class="grey-color">Ville</span> : <b>{{ contact.address.city }}</b> <br>
+        <span class="grey-color">Numéro d'adhérent</span> : <b>{{ contact.memberId }}</b> <br>
+        <span class="grey-color">Numéro RSAC</span> :  <b>{{ contact.rsac }}</b><br>
+    </section>
+
+    <section class="content-1 bordered">
+        <div class="title">
+            <h4>TARIF CONTRAT PROTECTION JURIDIQUE DES AGENTS COMMERCIAUX PROFESSIONNELS DE L'IMMOBILIER</h4>
+        </div>
+        <div class="content">
+            <ul>
+                <li><span class="grey-color">Montant de la prime</span> : 36 € TTC (Taxe assurance à 13,4 %)</li>
+                <li><span class="grey-color">Périodicité de l'appel de prime</span> : La garantie est reconduite tacitement chaque année au 1er janvier</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="content-2 bordered">
+        <div class="title">
+            <h4>DATE D'EFFET / DATE D'ÉCHÉANCE</h4>
+        </div>
+        <div class="content">
+            <p>
+                <span class="grey-color">La date d'effet</span> : <b>{{ contract.startDate|date('d/m/Y') }}</b> <br>
+                <span class="grey-color">La date d'échéance</span> : La garantie est reconduite tacitement chaque année au <b>1er janvier</b>
+            </p>
+            <p>La prise d'effet est conditionnée au paiement de la prime par le souscripteur.</p>
+        </div>
+    </section>
+
+    <section class="content-3 bordered">
+        <div class="title">
+            <h4>DÉCLARATIONS DU SOUSCRIPTEUR</h4>
+        </div>
+        <div class="content">
+            <div>
+                <p>L'assuré déclare :</p>
+                <p>
+                    - Certifier ne pas avoir connaissance de l'existence d'un litige le concernant à la date de souscription du contrat. <br>
+                    - Reconnaître avoir pris connaissance et accepté les dispositions générales référencées 1519744V1 jointes au
+                    bulletin de souscription, celles-ci détaillant les conditions d'application de la garantie et notamment les
+                    dispositions de l'article X.2 relatives aux conditions de résiliation.
+                </p> <br>
+                <p>Fait à <b>Paris</b> &emsp;  le <b>{{ "now"|date('d/m/Y') }}</b></p>
+            </div>
+            <div class="signature">
+                <div>
+                    {# Signature de l'assuré <br>
+                    <b>{{ contact.lastname }} {{ contact.firstname }}</b> #}
+                </div>
+                <div>
+                    {# <img src="data:image/jpg;base64, {{ source('@images/signature_asseris.jpg')|base64_encode }}"> #}
+                    Pour ASSERIS <br>
+                    A. DUFFFOUX <br>
+                    <img src="{{ asset('images/signature_asseris.jpg') }}" alt="" srcset="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <htmlpagefooter name="footer">
+        <section class="footer">
+            <p>
+                Contrat souscrit de auprès GROUPAMA PROTECTION JURIDIQUE - Entreprise régie par le Code des Assurances - Société anonyme au capital de 1 550 000 Euros (entièrement versé), <br>
+                Siège social : 14-16 Rue de la République 92800 PUTEAUX - RCS NANTERRE : B 321776775 par l'intermédiaire d'ASSERIS, 26, Avenue Victor Hugo 75116 Paris, code Orias 07002742, <br>
+                Société de Courtage en Assurances, Garantie Financière et assurance de responsabilité civile professionnelle conformes aux articles L 530-1 et L 530-2 du Code des Assurances
+            </p>
+            <p>
+                Les activités des sociétés d'assurances et de courtage en assurances sont soumises à l'ACPR - 61 rue Taitbout - 75436 Paris Cedex 09. www.acpr.banque-france.fr
+            </p>
+        </section>
+    </htmlpagefooter>
+</body>
+</html>
+{% endapply %}

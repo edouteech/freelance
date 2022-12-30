@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'helvetica';
+    font-size: 9pt;
+}
+
+p {
+    margin: 5px 0;
+}
+
+ul {
+    margin: 5px 0;
+    padding: 0;
+    padding-left: 18px;
+}
+
+section.header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section.header .logo img {
+    width: 150px;
+}
+
+section.header .title {
+    color: #dd042b;
+}
+
+section.header .title h3 {
+    font-size: 14pt;
+    margin: 10px auto;
+}
+
+section.header .title p {
+    width: 85%;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+section.address > div:last-of-type {
+    text-align: center;
+}
+
+section.address-pro > div {
+    margin: 7px auto;
+}
+
+section.content h4 {
+    margin-bottom: 0px;
+}
+
+section.content ul {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+section.content table {
+    margin-bottom: 10px;
+}
+
+section.content table, section.content table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+section.content table tr:first-of-type td {
+    background-color: #dd042b;
+    color: white;
+    height: 50px;
+    text-align: center;
+}
+
+section.content table tr td:nth-of-type(1) {
+    width: 45%;
+}
+
+section.content table tr td:nth-of-type(2) {
+    width: 30%;
+    text-align: center;
+}
+
+section.content table tr td:nth-of-type(3) {
+    width: 25%;
+    text-align: center;
+}
+
+section.signature {
+    text-align: right;
+}
+
+section.signature img {
+    margin-top: 10px;
+    width: 165px;
+}
+
+section.footer {
+    text-align: center;
+    font-size: 6.5pt;
+}

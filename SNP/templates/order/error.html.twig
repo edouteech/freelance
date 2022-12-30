@@ -1,0 +1,8 @@
+{% extends 'layout-page.html.twig' %}
+{% block body %}
+    La commande <b>{{ reference }}</b> n'a pas été correctement enregistrée dans le CRM.<br/>
+    Vous pouvez relancer manuellement l'enregistrement<br/><br/>
+    <a href="{{ host ~ validateUrl }}?code=" style="color: #0e2c6e; text-decoration: underline">{{ host ~ validateUrl }}?code=</a><br/><br/>
+    Voici le message d'erreur :<br/>
+    <pre>{{ error }}</pre>
+{% endblock %}

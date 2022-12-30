@@ -1,0 +1,112 @@
+{% apply inline_css(source('@styles/pdf/caci-quotation.css')) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis-CACI</title>
+    <style>
+        @page {
+            margin: 40px 50px 10px 50px;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div class="firstHalf">
+            <div>Pour tout renseignement, contactez :</div>
+            <div>
+                <b>SNPI</b> <br>
+                Tél : 01.53.64.91.60 <br>
+                Fax : 01.53.64.91.92 <br>
+                <span class="red-color">agentco@snpi.fr</span> <br>
+                <span class="red-color">www.snpi.pro/caci</span> <br>
+            </div>
+        </div>
+        <div class="secondHalf">
+            <p>
+                <b>{{ contact.civility }}. {{ contact.firstname }} {{ contact.lastname }}</b> <br>
+                <b>{{ contact.address.street }}</b> <br>
+                <b>{{ contact.address.zip }} {{ contact.address.city }}</b>
+            </p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div><h2 class="title red-color">DEVIS</h2></div>
+        <div>
+            <p>
+                Vous nous avez fait part de votre volonté d'adhérer au Collège des Agents Commerciaux SNPI pour votre activité de {{ contact.legalForm }}.
+            </p>
+        </div>
+        <div>
+            <table class="table">
+                <tr>
+                    <th valign="middle" class="red-table-header">VOS BESOINS</th>
+                    <th class="red-table-header">MODALITÉS</th>
+                </tr>
+                <tr>
+                    <td>Actualités et assistance juridique <br>5 / 7 jours</td>
+                    <td><b>GRATUIT ET ILLIMITÉ</b></td>
+                </tr>
+                <tr>
+                    <td>Formations aux tarifs exclusifs</td>
+                    <td>
+                        <b>à partir de 94,80 € TTC</b> <br>
+                        <small>soit 79 € HT + TVA (20 %)</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Assurances RCP et Protection Juridique</td>
+                    <td>Tarifs négociés</td>
+                </tr>
+                <tr>
+                    <td class="grey-table-header" colspan="2">NOTRE OFFRE</td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Montant TTC à verser</b> <br>
+                        <small><i>Pour la période du <b>{{ startDate|date('d/m/Y') }}</b> au <b>{{ startDate|date('31/12/Y') }}</b></i></small>
+                    </td>
+                    <td>
+                        0€ <br>
+                        (au lieu de 156 € par an)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="signature">
+        <div>Date d'adhésion : <b>{{ startDate|date('d/m/Y') }}</b></div>
+        <div>Date de remise au client : <b>{{ "now"|date('d/m/Y') }}</b></div>
+        <div>
+            <div>
+                <b>Alain Duffoux</b> <br>
+                <i>Président du SNPI</i>
+            </div>
+            <div class="logo">
+                {# <img src="data:image/jpg;base64, {{ source('@images/signature_asseris.jpg')|base64_encode }}"> #}
+                <img src="{{ asset('images/signature_asseris.jpg') }}" alt="" srcset="">
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="logo">
+            <img src="{{ asset('images/logo_caci.jpg') }}" alt="" srcset="">
+        </div>
+        <div>
+            Collège des Agents Commerciaux Immobiliers SNPI <br>
+            26, avenue Victor Hugo - 75116 Paris | Tél. : 01 53 64 91 60 | Fax : 01 53 64 91 92
+        </div>
+        <hr>
+        <div>
+            agentco@snpi.fr / www.snpi.pro/caci <br>
+            PRÉFECTURE DE PARIS N° 13.336
+        </div>
+    </section>
+</body>
+</html>
+{% endapply %}

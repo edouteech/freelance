@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<p>Bonjour {{ legalRepresentative.civility }} {{ legalRepresentative.lastname }}</p>
+	<p>Vous nous avez fait part de votre intérêt pour une formation qui était indisponible :
+		«{{ formation.title }}», le {{ formationCourse.start_at|format_datetime('short', 'none', locale='fr') }}
+		{% if formationCourse.format == 'webinar' %}
+		en Webinar via Zoom
+		{% elseif formationCourse.format == 'e-learning' %}
+		en e-learning
+		{% else %}
+			à {{ formationCourse.city }}
+		{% endif %}
+	</p>
+	<p>Nous vous informons que nouvelles places se sont libérées ! Vous pouvez dés à présent vous rendre sur la fiche de cette formation afin d’effectuer une réservation.</p>
+	<div style="font-family:Helvetica, Arial, sans-serif; font-size: 12px;padding-top: 20px">
+		<a href="{{ env.DASHBOARD_URL }}/formations/formation/{{ formationCourse.id }}"  style="display: inline-block; background: #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none; border-radius: 4px"><span style="color: #fff; text-decoration: none">Voir la formation</span></a>
+	</div>
+{% endblock %}

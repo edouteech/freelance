@@ -1,0 +1,18 @@
+{% extends 'layout-page.html.twig' %}
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+			<p>La formation <span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span> s'est terminée !</p>
+			<p>
+				{% if isInstructor %}
+					Vous n'avez pas signé la feuille de présence pour permettre aux participants de valider la formation et recevoir leur attestation.
+				{% else %}
+					Vous n'avez pas signé la feuille de présence pour valider la formation et recevoir votre attestation.
+				{% endif %}
+			</p>
+		</div>
+		<div style="font-family:Helvetica, Arial, sans-serif; font-size: 12px;padding-top: 20px">
+			<a href="{{ env.DASHBOARD_URL }}/webinar/{{ formationCourse.webinarId }}"  style="display: inline-block; background: #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none; border-radius: 4px"><span style="color: #fff; text-decoration: none">Signer maintenant</span></a>
+		</div>
+	</div>
+{% endblock %}

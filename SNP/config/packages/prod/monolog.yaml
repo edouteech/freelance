@@ -1,0 +1,6 @@
+monolog:
+    handlers:
+        rollbar:
+            type: service
+            id: Rollbar\Monolog\Handler\RollbarHandler
+            channels: ["!mail"]

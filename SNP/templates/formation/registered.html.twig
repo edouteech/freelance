@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>Bonjour {{ contact.civility }} {{ contact.lastname }}</p>
+		<p>
+			Nous vous confirmons votre inscription à la formation <span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span>,
+			{% if formationCourse.format == 'instructor-led' %}
+			qui aura lieu le {{ formationCourse.startAt|format_datetime('short', 'none', locale='fr') }} à {{ formationCourse.schedule }} heure de Paris
+			à l'adresse suivante : {{company.name}} {{company.street}}, {{company.zip}} {{company.city}}.
+			{% else %}
+				todo
+			{% endif %}
+		</p>
+	</div>
+{% endblock %}

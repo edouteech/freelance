@@ -1,0 +1,59 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+        mapping_types:
+            enum: string
+        types:
+            App\DBAL\RoleNameEnum: App\DBAL\RoleNameEnum
+            App\DBAL\RoleEnum: App\DBAL\RoleEnum
+            App\DBAL\RessourceRoleEnum: App\DBAL\RoleEnum
+            App\DBAL\TermRoleEnum: App\DBAL\RoleEnum
+            App\DBAL\UserTypeEnum: App\DBAL\UserTypeEnum
+            App\DBAL\OrderTypeEnum: App\DBAL\OrderTypeEnum
+            App\DBAL\NewsLinkTypeEnum: App\DBAL\NewsLinkTypeEnum
+            App\DBAL\PaymentStatusEnum: App\DBAL\PaymentStatusEnum
+            App\DBAL\DocumentAssetTypeEnum: App\DBAL\DocumentAssetTypeEnum
+            App\DBAL\ContactMetadataTypeEnum: App\DBAL\ContactMetadataTypeEnum
+            App\DBAL\ContactMetadataStateEnum: App\DBAL\ContactMetadataStateEnum
+            App\DBAL\FormationTypeEnum: App\DBAL\FormationTypeEnum
+            App\DBAL\UserAccessLogTypeEnum: App\DBAL\UserAccessLogTypeEnum
+            App\DBAL\NewsTargetEnum: App\DBAL\NewsTargetEnum
+            App\DBAL\FunctionEnum: App\DBAL\FunctionEnum
+            App\DBAL\RcpTypeEnum: App\DBAL\RcpTypeEnum
+
+        server_version : '5.0'
+        charset: utf8
+        logging: false #'%kernel.debug%'
+        default_table_options:
+            charset: utf8
+            collate: utf8_unicode_ci
+        # IMPORTANT: You MUST configure your server version,
+        # either here or in the DATABASE_URL env var (see .env file)
+        #server_version: '5.7'
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App
+        dql:
+            string_functions:
+                MONTH: DoctrineExtensions\Query\Mysql\Month
+                YEAR: DoctrineExtensions\Query\Mysql\Year
+            numeric_functions:
+                acos: DoctrineExtensions\Query\Mysql\Acos
+                cos: DoctrineExtensions\Query\Mysql\Cos
+                radians: DoctrineExtensions\Query\Mysql\Radians
+                sin: DoctrineExtensions\Query\Mysql\Sin
+                pi: DoctrineExtensions\Query\Mysql\Pi
+                pow: DoctrineExtensions\Query\Mysql\Power
+                geo: App\Query\Geo
+
+combodo_doctrine_encrypt:
+    secret_key:           kYp3s6v9y$B&E)H@McQfTjWmZq4t7w!z # Your own random 256 bit key (32 characters)
+    encryptor:            rijndael256 # rijndael256 or rijndael128

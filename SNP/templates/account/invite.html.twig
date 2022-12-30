@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+    <div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+        <p>Bonjour {{ contact.firstname }} {{ contact.lastname }}</p>
+        <p>
+            Grace à l'invitation de votre représentant légal, vous bénéficiez désormais d'un acces personnel sur l'espace adhérent SNPI!
+        </p>
+
+    </div>
+    <div style="font-family:Helvetica, Arial, sans-serif; font-size: 12px;padding-top: 20px">
+        <a href="{{ env.DASHBOARD_URL }}/connection/{{ token|url_encode }}" style="border-radius: 4px;display: inline-block; background: #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none">Acceder à mon compte</a>
+    </div>
+
+{% endblock %}
+
+{% block aside %}
+    <div style="background:#f5f7fa;font-family:Helvetica, Arial, sans-serif;font-size:12px;padding:40px 20px">
+        <h2 style="font-family: 'Times New Roman',serif; text-align: center;color:#042b72">Les avantages de votre espace adhérent</h2>
+        <div style="padding-top:20px">
+            <table style="width: 100%" class="block-mobile">
+                <tr class="block-mobile">
+                    <td style="font-family:Helvetica, Arial, sans-serif;font-size:12px; color:#042b72;padding:20px 25px;text-align: center" class="block-mobile mj-column-per-50">
+                        <img alt="Espace Adhérents - Dashboard" height="auto" src="{{ host ~ asset('email/dashboard@2x.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width: 65px;margin-left: auto; margin-right: auto" width="65"/>
+                        <p><b>DASHBOARD</b></p>
+                        <p>Formations, documents, actus<br/>Retrouvez les dernières nouveautés en clin d'oeil !</p>
+                    </td>
+                    <td style="font-family:Helvetica, Arial, sans-serif;font-size:12px; color:#042b72;padding:20px 25px;text-align: center" class="block-mobile mj-column-per-50">
+                        <img alt="Espace Adhérents - Formations" height="auto" src="{{ host ~ asset('email/mes-formations@2x.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width: 65px;margin-left: auto; margin-right: auto" width="65"/>
+                        <p><b>FORMATIONS</b></p>
+                        <p>Trouvez la formation dont vous avez besoin et avertissez-en votre représentant légal</p>
+                    </td>
+                </tr>
+                <tr class="block-mobile">
+                    <td style="font-family:Helvetica, Arial, sans-serif;font-size:12px; color:#042b72;padding:20px 25px;text-align: center" class="block-mobile mj-column-per-50">
+                        <img alt="Espace Adhérents - Documents" height="auto" src="{{ host ~ asset('email/mes-documents@2x.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width: 65px;margin-left: auto; margin-right: auto" width="65"/>
+                        <p><b>DOCUMENTS</b></p>
+                        <p>Informations juridiques, documents administratifs... Tous vos documents à portée de main !</p>
+                    </td>
+                    <td style="font-family:Helvetica, Arial, sans-serif;font-size:12px; color:#042b72;padding:20px 25px;text-align: center" class="block-mobile mj-column-per-50">
+                        <img alt="Espace Adhérents - Assurances" height="auto" src="{{ host ~ asset('email/mes-assurances@2x.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width: 65px;margin-left: auto; margin-right: auto" width="65"/>
+                        <p><b>ASSURANCES</b></p>
+                        <p>Consultez et souscrivez de nouvelles assurances grâce à nos enseignes Asseris et VHS.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}

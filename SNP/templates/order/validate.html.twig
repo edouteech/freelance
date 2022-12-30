@@ -1,0 +1,6 @@
+{% extends 'layout-page.html.twig' %}
+{% block body %}
+    La commande <b>{{ reference }}</b> a été validée manuellement.<br/>
+    Vous pouvez vous connecter sur l'espace client du compte <b>{{ user.login }}</b> afin d'executer la commande<br/><br/>
+    <a href="{{ returnUrl }}" style="color: #0e2c6e; text-decoration: underline">{{ returnUrl }}</a>
+{% endblock %}

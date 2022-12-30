@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'helvetica';
+    font-size: 10pt;
+}
+
+p {
+    margin: 5px 0;
+}
+
+ul {
+    margin: 5px 0;
+    padding: 0;
+    padding-left: 18px;
+}
+
+section > div > h4 {
+    margin: 0;
+    text-align: center;
+}
+
+.title {
+    background-color: #317c9b;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.content {
+    padding: 10px 20px;
+}
+
+.bordered {
+    border: 1.4px solid #317c9b;
+    padding: 5px;
+}
+
+.grey-color {
+    color: #666;
+}
+
+section.header {
+    width: 100%;
+    /* height: 100px; */
+}
+
+section.header div:nth-of-type(1) {
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+section.header div:nth-of-type(1) img {
+    width: 130px;
+    margin-top: 35px;
+    margin-right: 15px;
+}
+
+section.header div:nth-of-type(2) {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+section.header div:nth-of-type(2) table {
+    width: 100%;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #317c9b;
+}
+
+section.header div:nth-of-type(2) table, section.header div:nth-of-type(2) table td {
+    border: 1px solid #317c9b;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+}
+
+section.header div:nth-of-type(2) table tr:first-of-type > td:first-of-type {
+    color: #ffffff;
+    background-color: #317c9b;
+}
+
+section.header div:nth-of-type(3) {
+    width: 25%;
+    float: right;
+    text-align: center;
+}
+
+section.header div:nth-of-type(3) img {
+    width: 145px;
+    margin-top: 46px;
+    margin-left: 15px;
+}
+
+section.contact {
+    margin-top: 20px;
+    padding: 15px 20px;
+    line-height: 20px
+}
+
+section.content-1 {
+    margin-top: 20px;
+    padding: 0;
+}
+
+section.content-2 {
+    margin-top: 20px;
+    padding: 0;
+}
+
+section.content-3 {
+    margin-top: 20px;
+    padding: 0;
+}
+
+section.content-3 .content p {
+    margin-top: 10px;
+}
+
+section.content-3 .signature {
+    margin-top: 15px;
+}
+
+
+section.content-3 .signature div:first-of-type {
+    width: 40%;
+    float: left;
+}
+
+section.content-3 .signature div:last-of-type {
+    width: 40%;
+    float: right;
+    text-align: center;
+}
+
+section.content-3 .signature div:last-of-type > img {
+    width: 200px;
+}
+
+section.footer {
+    text-align: center;
+    font-size: 6.5pt;
+}
+
+section.footer p:last-of-type {
+    margin-top: 20px;
+}

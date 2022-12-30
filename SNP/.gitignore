@@ -1,0 +1,36 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.maintenance
+/.env.local.php
+/.env.*.local
+/.idea
+/public/bundles/*
+/public/img/*
+/private/*
+/var/
+/config/jwt
+/config/preload.php
+/vendor1/
+/vendor/
+###< symfony/framework-bundle ###
+
+.DS_Store
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###< google/apiclient ###
+/config/google-api
+###< google/apiclient ###

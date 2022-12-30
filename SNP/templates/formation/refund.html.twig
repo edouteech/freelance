@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<p>Bonjour</p>
+	<p>{{ contact.civility }} {{ contact.firstname }} {{ contact.lastname }}, #{{ memberId }}, a fait une demande d'annulation pour la formation:
+		«{{ formation.title }}», le {{ formationCourse.start_at|format_datetime('short', 'none', locale='fr') }}
+		{% if formationCourse.format == 'webinar' %}
+		en Webinar via Zoom
+		{% elseif formationCourse.format == 'e-learning' %}
+		en e-learning
+		{% else %}
+			à {{ formationCourse.city }}
+		{% endif %}
+	</p>
+	<p>
+		Les participants concernés sont :<br/>
+		{% for participant in participants %}
+			{{ participant.firstname }} {{ participant.lastname }}<br/>
+		{% endfor %}
+	</p>
+	{% if total %}
+		<p>Un avoir total a été généré pour la facture #{{ invoice }}, il faut maintenant procéder au remboursement via Monetico.</p>
+	{% else %}
+		<p>Un avoir partiel doit être généré de {{ refund }}€, il faut aussi procéder au remboursement via Monetico.</p>
+	{% endif %}
+{% endblock %}

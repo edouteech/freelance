@@ -1,0 +1,16 @@
+nelmio_api_doc:
+    documentation:
+        schemes: [https]
+        info:
+            title: SNPI API
+            description: Gestion de l'espace adhérent
+            version: 1.5.12
+        securityDefinitions:
+            Authorization:
+                type: apiKey
+                description: 'Value: {jwt}'
+                name: Authorization
+                in: header
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/(?!swagger|_error|payment/capture|payment/authorize|payment/notify|payment/payout|payment/refund|payment/refund|payment/cancel|payment/sync) # Accepts routes under /api except /api/doc

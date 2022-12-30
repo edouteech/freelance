@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>Bonjour,<br/>
+			<br/>
+			{{ contact.civility }} {{ contact.firstname }} {{ contact.lastname }} {% if company %}de la société {{ company.brand }} n° adhérent {{ company.memberId }}{% elseif contact.memberId %}n° adhérent {{ contact.memberId }}{% endif %},
+			souhaite annuler sa formation {{ formation.title }} - Webinar : {{ formationCourse.webinarId }}.<br/>
+			<br/>
+			Voici ses coordonnées :<br/>
+			Adresse e-mail : {{ address.email }}<br/>
+			Numéro de téléphone : {{ address.phone }}<br/>
+			<br/>
+			Merci.
+		</p>
+	</div>
+{% endblock %}

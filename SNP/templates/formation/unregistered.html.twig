@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>Bonjour {{ contact.civility }} {{ contact.lastname }}</p>
+		<p>
+			Nous vous confirmons <b style="color: red">l'annulation de l'inscription</b> à la formation <span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span>,
+			qui devait avoir lieu le {{ formationCourse.startAt|format_datetime('short', 'none', locale='fr') }} à {{ formationCourse.schedule }} heure de Paris.
+		</p>
+	</div>
+{% endblock %}

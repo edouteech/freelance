@@ -1,0 +1,17 @@
+{% extends 'layout-page.html.twig' %}
+
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>
+			Félicitations. Vous venez de mettre fin à la {{ completed ? '' : 'journée de' }} formation <span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span>!
+			Les participants vont pouvoir signer électroniquement la feuille de présence {% if completed %} et remplir le QCM{% endif %}.<br/>
+			{% if completed %}Leur attestation leur sera envoyée automatiquement une fois ces documents complétés.{% endif %}
+		</p>
+		<p>
+			<b>ATTENTION :</b> VOUS DEVEZ ENCORE SIGNER LA FEUILLE DE PRESENCE.
+		</p>
+		<div style="font-family:Helvetica, Arial, sans-serif; font-size: 12px;padding-top: 20px">
+			<a href="{{ env.DASHBOARD_URL }}/webinar/{{ formationCourse.webinarId }}"  style="display: inline-block; background: #0e2c6e; color: #fff; padding: 5px 20px; text-decoration: none; border-radius: 4px"><span style="color: #fff; text-decoration: none">Signer maintenant</span></a>
+		</div>
+	</div>
+{% endblock %}

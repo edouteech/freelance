@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<p>Bonjour {{ contact.civility }} {{ contact.lastname }}</p>
+	<p>
+		Vous pouvez dès à présent vous connecter sur
+		<a href="http://www.elearning-snpi.com/" style="text-decoration: underline; color: #db002f;"><font color=\"#db002f\">votre espace de formation E-learning (FOAD)</font></a>
+		en utilisant votre adresse e-mail ainsi que votre mot de passe : {{ contact.eLearningPassword }}
+	</p>
+	<p>Si vous perdez ce dernier, merci de contacter votre représentant légal pour le réinitialiser.</p>
+{% endblock %}

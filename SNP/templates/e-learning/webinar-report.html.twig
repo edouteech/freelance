@@ -1,0 +1,21 @@
+{% extends 'layout-page.html.twig' %}
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>
+			Le formateur vient de mettre fin à la {{ completed ? '' : 'journée de' }} formation <span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span>!
+			Les participants vont pouvoir signer électroniquement la feuille de présence{% if completed %} et remplir le QCM{% endif %}.<br/>
+		</p>
+		<p style="text-align: left">
+			<b>{{ summary.completed|length }} présent(s)</b><br/>
+			{% for present in summary.completed %}
+				- {{ present.contact.firstname }} {{ present.contact.lastname }}<br/>
+			{% endfor %}
+			<b>{{ summary.absents|length }} absent(s)</b><br/>
+			{% for absent in summary.absents %}
+				- {{ absent.contact.firstname }} {{ absent.contact.lastname }}<br/>
+			{% endfor %}
+		</p>
+		<p style="text-align: left">Log Zoom :</p>
+		<pre style="text-align: left; font-size: 11px; word-break: break-word; padding: 10px; background: #f3f3f3; line-height: 1.4; margin-bottom: 0">{{ webinarParticipants|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+	</div>
+{% endblock %}

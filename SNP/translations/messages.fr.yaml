@@ -1,0 +1,102 @@
+Missing parameters: Champs vides
+Invalid parameters: Champs incorrects
+Invalid arguments: Champs incorrects
+Invalid password: Mot de passe incorrect
+Wrong password: Mot de passe incorrect
+Unauthorized login: Connexion non autorisée
+Unable to find user email: Votre adresse email n'est pas renseignée, veuillez la renseigner dans votre profil pour continuer
+Siren not found: Société non répertoriée, veuillez la créer
+Business card not found: La carte pro n'est pas renseignée
+Internal server error: Erreur interne
+File does not exists: Le fichier n'existe pas
+File not found: La pièce jointe n'est plus disponible sur le serveur
+Download link has expired: Le lien de téléchargement a expiré
+Formation course is not active: La formation n'est pas en cours
+Payment not found in CRM: Votre paiement a bien été validé, mais il n’a pas été enregistré. Vous devriez recevoir vos factures et services dans quelques minutes. Veuillez nous excuser pour la gêne occasionnée.
+Eudonet quota will expire soon: En raison d’une forte affluence, votre connexion à l’espace adhérent peut être perturbée. Si vous rencontrez des difficultés ou si vous êtes déconnecté, merci de réessayer dans quelques minutes.
+Documents not synced: En raison d'une forte affluence, la synchronisation des documents est impossible, merci de recharger la page dans quelques minutes.
+Participant not found: Cette adresse e-mail est inconnue ! Merci de bien vouloir renseigner l'adresse e-mail à laquelle nous vous avons communiqué les informations relatives à votre session de formation.
+Connection required: Une connexion est requise
+Your token is expired, please renew it.: Votre token a expiré, veuillez vous reconnecter pour en obtenir un nouveau
+Your token is invalid, please login again to get a new one: Votre token n'est pas valide, veuillez vous reconnecter pour en obtenir un nouveau
+Contacts registered to webinar: Vous venez d’acheter une ou plusieurs formations <b>en webinaire !</b> Nous vous prions de vérifier que <u>chaque participant a bien reçu son mail d’inscription.</u> En effet, celui-ci sera indispensable pour se connecter à la formation le jour J <b>via l'URL indiquée.</b>
+Company not found: Société non trouvée
+Email not found: Email non trouvé
+Email invalid: Email invalide
+News not found: Actualité introuvable
+Contact not found: Contact introuvable
+Entity is empty: Entité vide
+Unable to find appendices: Documents introuvables
+Unable to find appendices asset: Fichier introuvable
+Unable to find appendix: Fichier introuvable
+Unable to find appendix asset: Fichier introuvable
+This contact is already associated: Le contact est déjà associé à une société
+User already created: Un utilisateur avec cet email existe déjà, veuillez vous connecter ou faire une demande de mot de passe oublié
+Contact already created: Un contact avec cet email existe déjà, veuillez rafraichir la page pour continuer, si le probleme persiste, merci de contacter le support
+Contact already exists: Un contact avec cet email existe déjà, veuillez modifier l'email
+Eudonet can't create contact: Eudonet ne peut pas créer le contact
+Contact email not found: L'email du contact est introuvable
+Cannot create user: Contact non créé
+Address not found: Adresse introuvable
+User cannot assign company: L'utilisateur ne peut pas ajouter de société
+User is not a commercial agent: L'utilisateur n'est pas un agent commercial
+You are not allowed to access this download link: Vous n'êtes pas autorisé à télécharger ce document
+You have no right on this contact: Vous n'avez pas les droits nécessaires pour agir sur ce contact
+Unable to find formation: Formation introuvable
+No program found: Aucun programme trouvé
+Formation not found: Formation introuvable
+Surveys not found for this formation: Questionnaire de satfisaction introuvable pour cette formation
+No formation available to schedule.: Aucune formation disponible à ajouter au calendrier
+Payment not found: Paiement introuvable
+Formation course not found: Session de formation introuvable
+Formation participant not found: Participant introuvable
+No contact added: Aucun contact ajouté
+Invalid order type: Type de commande invalide
+Order not found: Commande introuvable
+Not enough seat available for this formation course: Le nombre de places disponibles n'est pas suffisant pour cette formation
+Operation not allowed: Opération non autorisée
+Page not found: Page introuvable
+Code invalid.: Code invalide
+File not allowed: Fichier non autorisé
+Selected pack is not available: Le pack selectionné n'est pas disponible
+Multiple contacts found: Plusieurs contacts ont le même email, merci de contacter le support
+Multiple companies found: Plusieurs sociétés ont le même email, merci de contacter le support
+Unable to create user: Création de l'utilisateur impossible
+Answer is not valid: Réponse invalide
+Question is not valid: Question invalide
+"%s has not completed \"%s\"": "Afin de pouvoir suivre cette formation, vous devez au préalable inscrire %s au module \"%s\""
+phone is not valid: Le numéro de téléphone n'est pas valide
+issuedAt is not valid: La date de délivrance de l'attestation d'habilitation n'est pas valide
+issuedAt must be not empty: La date de délivrance de l'attestation d'habilitation ne doit pas être vide
+startedAt is not valid: La date d'entrée dans l'entreprise n'est pas valide
+startedAt must be not empty: La date d'entrée dans l'entreprise ne doit pas être vide
+website must be not empty: Le site internet ne doit pas être vide
+email must be not empty: L'email ne doit pas être vide
+email is not valid: L'email n'est pas valide
+street1 must be not empty: L'adresse ne doit pas être vide
+zip must be not empty: Le code postal ne doit pas être vide
+city must be not empty: La ville ne doit pas être vide
+firstname must be not empty: Le prénom ne doit pas être vide
+lastname must be not empty: Le prénom ne doit pas être vide
+expireAt must be not empty: La date d'expiration de l'attestation d'habilitation ne doit pas etre vide
+Email %s already registered on Zoom: Cet email %s est déja enregistré sur Zoom.
+Address is required for %s: Nous n'avons pas trouvé d'adresse pour %s
+Email is required for %s: Nous n'avons pas trouvé d'adresse e-mail pour %s
+Two or more contacts have the same email %s: Au moins deux contacts ont le même email %s
+Invalid document provided: Le document n'est pas valide
+Formation course is not completed: La formation n'est pas terminée
+Company is missing: La société n'est pas renseignée
+Data is missing: Il manque des données
+An error occurred, please retry: Une erreur est survenue, merci de réessayer
+Email not validated: Vous n'avez pas validé votre compte, nous venons de vous renvoyer un mail avec un lien validation.
+A user with this login already exists: Cet email existe déjà, veuillez vous connecter ou faire une demande de mot de passe oublié
+Invalid legal representative: Votre compte representant légale n'est pas valide
+Invalid commercial agent: Votre compte agent commercial n'est pas valide
+Invalid collaborator: Votre compte collaborateur n'est pas valide
+Only member can edit themselves: Ce collaborateur dispose de son propre espace adhérent. Toute modification doit être faite par lui dans son espace adhérent associé
+Email already used: Cet email est deja utilisé sur un autre compte
+Account not found: Il n'existe pas de compte collaborateur utilisant cet email, merci de contacter le représentant légale
+Can't create account: Votre société ne peut pas encore créer de compte collaborateur
+Attestation generation failed: La création de l\'attestation a générée une erreur, veuillez réessayer dans quelques instants
+Invalid Token: Votre session a expiré, veuillez vous reconnecter
+Invalid user: Compte utilisateur invalide

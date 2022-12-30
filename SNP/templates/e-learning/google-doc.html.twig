@@ -1,0 +1,29 @@
+<h1>{{ formation.title }}</h1><br/>
+<ul>
+    <li>Theme: {{ formation.theme }}</li>
+    <li>Objectif: {{ formation.objective }}</li>
+    <li>Heures: {{ formation.hours }}</li>
+    <li>Jours: {{ formation.days }}</li>
+</ul>
+{% if foad.write %}
+    {% if foad.write.introduction %}
+        <br/><h2>Introduction</h2><br/>
+        {% for row in foad.write.introduction %}
+            <br/><h3>{{ row.title }}</h3><br/>
+            <div><br/>{{ row.wysiwyg|raw }}<br/></div>
+        {% endfor %}
+    {% endif %}
+    {% if foad.write.chapters %}
+        <br/><h2>Chapitres</h2><br/>
+        {% for chapter in foad.write.chapters %}
+            <br/><h3>{{ chapter.title }}</h3><br/>
+            {% for subchapter in chapter.subchapters %}
+                <br/><h4>{{ subchapter.title }}</h4><br/>
+                {% if subchapter.video_url %}<br/>[VIDEO] {{ subchapter.video_url }}<br/>{% endif %}
+                {% if subchapter.file %}<br/>[PDF] {{ subchapter.file.url }}<br/>{% endif %}
+                {% if subchapter.quiz %}<br/>[QUIZ]<br/>{% endif %}
+                {% if subchapter.wysiwyg %}<div><br/>{{ subchapter.wysiwyg|raw }}<br/></div>{% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+{% endif %}

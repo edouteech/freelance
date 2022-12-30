@@ -1,0 +1,122 @@
+{% apply inline_css(source('@styles/pdf/rcp-certificate.css')) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ac_sous_rcp_attestation</title>
+    <style>
+        @page {
+            margin: 30px 30px 90px 30px;
+            footer: footer;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div class="logo">
+            <img src="{{ asset('images/logo_Serenis_assurances.jpg') }}" alt="">
+        </div>
+
+        <div class="title">
+            <h3>ATTESTATION D'ASSURANCE RESPONSABILITÉ CIVILE PROFESSIONNELLE</h3>
+            <p>
+                des agents commerciaux habilités par le titulaire de la carte professionnelle exerçant les activités
+                prévues et régies par la loi n°70-9 du 2 janvier 1970 et le décret n°72-678 du 20 juillet 1972
+            </p>
+        </div>
+    </section>
+
+    <section class="address">
+        <div>
+            SERENIS Assurances S.A. atteste que :<br/>
+            <b>{{ contact.firstname }} {{ contact.lastname }}</b>
+            <b>{{ contact.address.street1 }}, {{ contact.address.zip }}, {{ contact.address.city }}</b>
+        </div>
+    </section>
+
+    <section class="address-pro">
+        <div>Habilité(e) par :</div>
+        <div>
+            La société : <b>{{ address.company.name }}</b> <br>
+            Représentée par :
+            {% if address.company.companyRepresentative.label %}
+                <b>{{ address.company.companyRepresentative.label }}</b><br>
+            {% else %}
+                <b>{{ address.company.legalRepresentative.civility }} {{ address.company.legalRepresentative.fullname }}</b><br>
+            {% endif %}
+            Titulaire de la carte professionnelle n° : <b>{{ address.company.businessCard.number }}</b> <br>
+            Délivrée le : <b>{{ address.company.businessCard.issuedAt|date('d/m/Y') }}</b> par : <b>{{ address.company.businessCard.cci }}</b><br>
+        </div>
+        <div>Police n° {{ contract.policyNumber }}  &emsp;  Contrat N° <b>{{ contact.memberId }}</b>  &emsp;  Date de prise d'effet du contrat : <b>{{ contract.startDate|date('d/m/Y') }}</b></div>
+    </section>
+
+    <section class="content">
+        <p>
+            a souscrit pour son compte, un contrat d'assurance VD 7.000.002 garantissant sa Responsabilité Civile Professionnelle et comportant
+            des garanties au moins équivalentes à celles prévues par l'arrêté du 1er septembre 1972.
+        </p>
+        <h4>ACTIVITE PROFESSIONNELLE GARANTIE</h4>
+        <p>
+            L'assuré, personne physique, habilité par le titulaire de la carte professionnelle, peut se livrer aux opérations de représentation,
+            prospection, négociation, ou entremise, au nom et pour le compte du mandant, dans la limite des textes législatifs et réglementaires
+            applicables et des mentions portées sur l'attestation d'habilitation prévue par l'article 9 du décret du 20 juillet 1972.
+        </p>
+        <p>Entrent dans cette définition, les activités relatives à :</p>
+        <ul>
+            <li>des transactions immobilières.</li>
+            <li>la prospection de vendeurs, d'acquéreurs, de bailleurs, et / ou de locataires d'immeubles bâtis ou non bâtis, ainsi que de fonds de commerce.</li>
+            <li>la rédaction de mandats de vente, de recherche, de location et / ou de gestion.</li>
+            <li>la visite et la présentation des immeubles bâtis ou non bâtis et fonds de commerce.</li>
+            <li>la publicité sur les biens immobiliers et fonds de commerce.</li>
+            <li>la négociation entre les parties d'une opération immobilière.</li>
+        </ul>
+        <table>
+            <tr>
+                <td>GARANTIES</td>
+                <td>MONTANT DES GARANTIES</td>
+                <td>FRANCHISE PAR SINISTRE</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Dommages corporels, matériels, immatériels
+                    consécutifs et incorporels confondus</b>, par année
+                    d'assurance
+                </td>
+                <td>200 000 € / an</td>
+                <td>10 % <br> MAXI 7 600 €</td>
+            </tr>
+            <tr>
+                <td>dont <b>Bien confiés</b>, par année d'assurance</td>
+                <td>30 000 €</td>
+                <td>750 €</td>
+            </tr>
+        </table>
+        <p>
+            La présente attestation n'implique qu'une présomption de garantie à la charge de l'assureur. Elle ne peut engager l'assureur au-delà
+            des conditions du contrat auquel elle se réfère, notamment en ce qui concerne le paiement des cotisations et est valable pour la
+            période du <b>{{ contract.startDate|date('d/m/Y') }}</b> au <b>{{ contract.endDate|date('d/m/Y') }}</b>.
+        </p>
+    </section>
+
+    <section class="signature">
+        Fait à Paris, le {{ "now"|date('d/m/Y') }} <br>
+        POUR VALOIR CE QUE DE DROIT <br>
+        Pour <b><u>SERENIS ASSURANCES S.A.</u></b> <br>
+        <img src="{{ asset('images/signature_asseris.jpg') }}" alt="" srcset="">
+    </section>
+
+    <htmlpagefooter name="footer">
+        <section class="footer">
+            <p>
+                SERENIS ASSURANCES S.A - Société anonyme au capital de 16 422 000 € - B 350 838 686 RCS ROMANS - N° TVA : FR 13 350 838 686
+            </p>
+            <p>
+                Entreprise régie par le Code des Assurances - Adresse postale : 63, chemin Antoine Pardon 69814 TASSIN CEDEX
+            </p>
+        </section>
+    </htmlpagefooter>
+</body>
+</html>
+{% endapply %}

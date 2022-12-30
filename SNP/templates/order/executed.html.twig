@@ -1,0 +1,12 @@
+{% extends 'layout-page.html.twig' %}
+{% block body %}
+    Merci pour votre achat d'un montant de {{ payment.totalAmount/100 }}€.<br/><br/>
+    Récapitulatif :<br/>
+    {% for orderDetail in orderDetails %}
+        - {{ orderDetail.message }} {{ orderDetail.quantity }}x {{ orderDetail.title }}<br/>
+    {% endfor %}
+    <br/>
+    Vous pouvez retrouver votre facture dans votre espace adhérent, dans le menu "Mes documents" > "Mes documents administratifs"<br/>
+    <br/>
+    Merci
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size: 12px;color:#042b72; padding:0 20px;">
+		<p>Bonjour</p>
+		<p>
+			Nous vous confirmons vos inscriptions à la formation webinaire en direct :
+			<span style="font-weight: bold; font-style: italic;"><b><i>&laquo; {{ formation.title }} &raquo;</i></b></span>{% if formationCourse.days > 1 %} qui aura lieu sur {{ formationCourse.days }} jours{% endif %}<br/><br/>
+			{% if formationCourse.days > 1 %}
+				Date : du {{ formationCourse.startAt|format_datetime('short', 'none', locale='fr') }} au {{ formationCourse.endAt|format_datetime('short', 'none', locale='fr') }}<br/>
+				Horaires : {{ formationCourse.schedule }} heure de Paris.
+			{% else %}
+				Date : {{ formationCourse.startAt|format_datetime('short', 'none', locale='fr') }}<br/>
+				Horaires : {{ formationCourse.schedule }} heure de Paris.
+			{% endif %}
+			<br/><br/>
+		</p>
+		<p>Vos collaborateurs ont reçu leur email de connexion à Zoom sur :<br/>
+			{% for registrant in registrants %}
+				{{ registrant.first_name }} {{ registrant.last_name }} : {{ registrant.email }}<br/>
+			{% endfor %}
+		</p>
+		<br/>
+		<p><b style="color:red">Nous vous remercions par avance de vérifier avec vos collaborateurs qu’ils aient bien reçu l’URL de connexion sur ces boîtes mail.</b></p>
+		<br/>
+		<p>
+			Pour toute question, vous pouvez nous contacter à l'adresse : <a href="mailto:{{ env.ZOOM_DEFAULT_CONTACT_EMAIL }}">{{ env.ZOOM_DEFAULT_CONTACT_EMAIL }}</a>.
+		</p>
+	</div>
+{% endblock %}

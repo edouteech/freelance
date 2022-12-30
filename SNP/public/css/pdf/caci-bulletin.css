@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'helvetica';
+    font-size: 10pt;
+}
+
+section.header > div {
+    float: left;
+}
+
+section.header div.logo {
+    width: 25%;
+}
+
+section.header div.logo img {
+    width: 110px;
+}
+
+section.header div.title {
+    width: 50%;
+    text-align: center;
+}
+
+section.header div.title h3 {
+    font-weight: lighter;
+    font-size: 14pt;
+    color: #013ca6;
+}
+
+section.header div.title h4 {
+    font-weight: lighter;
+    font-size: 12pt;
+    color: #e51e39;
+}
+
+section.header div.member-id {
+    width: 25%;
+    text-align: center;
+}
+
+section.header div.member-id h3 {
+    border: 1px solid #e51e39;
+    padding: 7px;
+    margin-left: 30px;
+}
+
+section.content {
+    border: 1px solid #d5dbe6;
+    background-color: #f2f7ff;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+section.content h3 {
+    margin-top: 0px;
+    font-weight: lighter;
+    color: #013ca6;
+}
+
+section.made-in {
+    margin-top: 50px;
+}
+
+section.signature {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 8pt;
+}
+
+section.signature div:first-of-type {
+    width: 30%;
+    float: left;
+    text-align: center;
+}
+
+section.signature div:last-of-type {
+    width: 45%;
+    float: right;
+    text-align: center;
+}
+
+section.signature div:last-of-type > img {
+    width: 300px;
+}
+
+section.footer {
+    text-align: center;
+}
+
+section.footer p:first-child {
+    color: #013ca6;
+    font-size: 8pt;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 10px solid #013ca6;
+}
+
+section.footer p:last-child {
+    padding-top: 5px;
+    font-size: 7pt;
+}

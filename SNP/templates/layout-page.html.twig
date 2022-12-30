@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<title>Communication SNPI</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		#outlook a {padding: 0}
+		.ReadMsgBody {width: 100%}
+		.ExternalClass {width: 100%}
+		.ExternalClass * {line-height: 100%}
+		body {
+			margin: 0;
+			padding: 0;
+			-webkit-text-size-adjust: 100%;
+			-ms-text-size-adjust: 100%;
+		}
+		table, td {
+			border-collapse: collapse;
+			mso-table-lspace: 0;
+			mso-table-rspace: 0;
+		}
+		img {
+			border: 0;
+			height: auto;
+			line-height: 100%;
+			outline: none;
+			text-decoration: none;
+			-ms-interpolation-mode: bicubic;
+		}
+		p {
+			display: block;
+			margin: 13px 0;
+		}
+
+		@media only screen and (min-width: 480px) {
+			.mj-column-per-100 {
+				width: 100% !important;
+				max-width: 100%;
+			}
+
+			.mj-column-per-50 {
+				width: 50% !important;
+				max-width: 50%;
+			}
+
+			.mj-column-per-70 {
+				width: 70% !important;
+				max-width: 70%;
+			}
+		}
+
+		@media only screen and (max-width: 480px) {
+			table.full-width-mobile {
+				width: 100% !important;
+			}
+
+			td.full-width-mobile {
+				width: auto !important;
+			}
+		}
+
+
+		noinput.mj-menu-checkbox {
+			display: block !important;
+			max-height: none !important;
+			visibility: visible !important;
+		}
+
+		@media only screen and (max-width: 480px) {
+			.mj-menu-checkbox[type="checkbox"] ~ .mj-inline-links {
+				display: none !important;
+			}
+
+			.mj-menu-checkbox[type="checkbox"]:checked ~ .mj-inline-links,
+			.mj-menu-checkbox[type="checkbox"] ~ .mj-menu-trigger {
+				display: block !important;
+				max-width: none !important;
+				max-height: none !important;
+				font-size: inherit !important;
+			}
+
+			.mj-menu-checkbox[type="checkbox"] ~ .mj-inline-links > a {
+				display: block !important;
+			}
+
+			.mj-menu-checkbox[type="checkbox"]:checked ~ .mj-menu-trigger .mj-menu-icon-close {
+				display: block !important;
+			}
+
+			.mj-menu-checkbox[type="checkbox"]:checked ~ .mj-menu-trigger .mj-menu-icon-open {
+				display: none !important;
+			}
+		}
+
+		@media only screen and (min-width: 481px) {
+			*[class~=hide_on_desktop] {
+				display: none !important;
+			}
+		}
+
+		@media only screen and (max-width: 480px) {
+			.header_mobile {
+				max-width: 50% !important;
+			}
+
+			.header_mobile img {
+				width: 100% !important;
+			}
+
+			.image_mobile {
+				max-width: 50% !important;
+			}
+
+			.image_mobile img {
+				width: 200px !important;
+			}
+
+			*[class~=hide_on_mobile] {
+				display: none !important;
+			}
+		}
+	</style>
+</head>
+<body style="background-color:#ecf0f3;">
+<div style="background-color:#ecf0f3;padding-top: 20px">
+	<div style="background:#fff; margin:0 auto;max-width: 600px">
+		<table width="100%" style="width: 100%;max-width: 600px">
+			<tr>
+				<td>
+					<img alt="illustration" height="auto" src="{{ host ~ asset('email/full_image.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;" width="600" />
+				</td>
+			</tr>
+			<tr>
+				<td style="padding-bottom: 50px; padding-top: 80px; text-align: center">
+					<div style="font-family:Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;line-height:1;text-align:center;text-transform:uppercase;color:#0e2c6e;margin-bottom: 20px">
+						{{title}}
+					</div>
+					<div style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:20px;text-align:center;color:#838385;padding: 0 40px">
+						{% block body %}{% endblock %}
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="font-family:Helvetica, Arial, sans-serif;font-size:10px;text-align:center;color:#838385;margin:0 auto;width: 100%;max-width:600px;line-height:1.2; padding-top: 10px">
+
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% apply inline_css(source('@styles/pdf/caci-bulletin.css')) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulletin CACI</title>
+    <style>
+        @page {
+            margin: 30px 30px 100px 30px;
+            footer: footer;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div class="logo">
+            <img src="{{ asset('images/logo_caci.jpg') }}" alt="" srcset="">
+        </div>
+        <div class="title">
+            <h3>Collège des Agents Commerciaux Immobiliers SNPI</h3>
+            <h4>Bulletin d'adhésion N° {{ contact.memberId }}</h4>
+        </div>
+        <div class="member-id">
+            <h3>D N° {{ contact.memberId }}</h3>
+        </div>
+    </section>
+
+    <section class="content">
+        <h3>VOS INFORMATIONS</h3>
+        Civilité : <b>{{ contact.civility }}</b> Prénom : <b>{{ contact.firstname }}</b> Nom : <b>{{ contact.lastname }}</b> <br>
+        Né le : <b>{{ contact.birthday|date('d/m/Y') }}</b> à : <b>{{ contact.birthPlace }}</b> <br>
+        Adresse postale : <b>{{ contact.address.street1 }}</b> <br>
+        Code postal : <b>{{ contact.address.zip }}</b> Ville : <b>{{ contact.address.city }}</b> <br>
+        Tél. portable : <b>{{ contact.phone }}</b> <br>
+        Adresse électronique : <b>{{ contact.email }}</b> <br>
+    </section>
+
+    <section class="content">
+        <h3>VOTRE ACTIVITÉ</h3>
+        Nature de l'activité : <b>{{ contact.legalForm }}</b> <br>
+        N° RSAC : <b>{{ contact.rsac }}</b>
+    </section>
+
+    <section class="content">
+        <h3>DATE D'EFFET</h3>
+        Votre adhésion prendra effet à partir du <b>{{ membershipDate|date('d/m/Y') }}</b>
+    </section>
+
+    <section class="made-in">
+        <p>
+            Fait le <b>{{ "now"|date('d/m/Y') }}</b> à <b>Paris</b>. <br>
+            <i>En deux exemplaires originaux, un pour le SNPI et un pour l'adhérent.</i>
+        </p>
+    </section>
+
+    <section class="signature">
+        <div>
+            Signature de l'assuré <br>
+            <b>{{ contact.lastname }} {{ contact.firstname }}</b>
+        </div>
+        <div>
+            {# <img src="data:image/jpg;base64, {{ source('@images/signature_asseris.jpg')|base64_encode }}"> #}
+            Signature du SNPI <br>
+            <img src="{{ asset('images/signature_asseris.jpg') }}" alt="" srcset="">
+        </div>
+    </section>
+
+    <htmlpagefooter name="footer">
+        <section class="footer">
+            <p>
+                Syndicat National des Professionnels Immobiliers - 26, avenue Victor Hugo - 75116 Paris <br>
+                Tél. : 01 53 64 91 60 - Fax : 01 53 64 91 92 - Email : agentco@snpi.fr - Site web : www.snpi.pro/caci
+            </p>
+            <p>
+                SIRET 305 442 501 00030 - CODE NAF : 9411Z - PRÉFECTURE DE PARIS N° 13.336
+            </p>
+        </section>
+    </htmlpagefooter>
+</body>
+</html>
+{% endapply %}
